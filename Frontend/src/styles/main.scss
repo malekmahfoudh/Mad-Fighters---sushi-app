@@ -1,0 +1,10 @@
+@import "variables";
+@import 'swiper/scss';
+@import "HeroFood";
+
+body {
+  font-family: $font-family-base;
+  color: $font-color;
+  background-color: $background-color;
+
+}

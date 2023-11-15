@@ -16,6 +16,13 @@ function SearchBar() {
                     <li className="desserts"></li>
                     <li className="drinks"></li>
                 </ul>
+            <section className='list__names'>
+                <p>starters</p>
+                <p>mains</p>
+                <p>sides</p>
+                <p>desserts</p>
+                <p>drinks</p>
+            </section>
         </main>
      );
 }

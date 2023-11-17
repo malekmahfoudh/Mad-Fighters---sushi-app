@@ -4,25 +4,34 @@ function SearchBar() {
     return ( 
         <main className="SearchBarContainer">
             <div className="SearchBar">
-                <div className="SearchBar__input">
+                <div className="input-wrapper">
                     <input type="text" />
                     <button></button>
                 </div>
             </div>
                 <ul>
-                    <li className="starters"></li>
-                    <li className="mains"></li>
-                    <li className="sides"></li>
-                    <li className="desserts"></li>
-                    <li className="drinks"></li>
+                    <li>
+                        <img src="../assets/icons/Zongzi.svg/" alt="" />
+                        <a>starters</a>
+                    </li>
+                    <li className="mains">
+                        <img src="../assets/icons/Sushi.svg/" alt="" />
+                        <a>mains</a>
+                    </li>
+                    <li>
+                    <img src="../assets/icons/Baozi.svg/" alt="" />
+                        <a>sides</a>
+                    </li>
+                    <li>
+                    <img src="../assets/icons/Pudding.svg/" alt="" />
+                        <a>desserts</a>
+                    </li>
+                    <li>
+                    <img src="../assets/icons/Drink.svg/" alt="" />
+                        <a>drinks</a>
+                    </li>
                 </ul>
-            <section className='list__names'>
-                <p>starters</p>
-                <p>mains</p>
-                <p>sides</p>
-                <p>desserts</p>
-                <p>drinks</p>
-            </section>
+
         </main>
      );
 }

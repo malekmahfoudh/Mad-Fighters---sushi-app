@@ -10,6 +10,9 @@ function HomePage() {
         <Header />
         <HeroFood />
         <SearchBar />
+        <article>
+          <h3>Top choices</h3>
+        </article>
         <FoodCard />
     </main>
     

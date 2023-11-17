@@ -1,114 +1,81 @@
 .SearchBarContainer {
-
-    ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        list-style: none;
-        gap: 1rem;
-        margin-top: 1.3rem;
-        padding: 0;
-        li {
-
-            padding: 0;
-            width: 3.125rem;
-            height: 3.125rem;
-            background-color: $font-color;
-            border-radius: 50%;
-        }
-        .starters {
-            background-image: url(../public/assets/icons/Zongzi.svg);
-            background-repeat: no-repeat;
-            background-size: 75%;
-            background-position: center;
-        }
-        .mains {
-            background-image: url(../public/assets/icons/Sushi.svg);
-            background-repeat: no-repeat;
-            background-size: 75%;
-            background-position: center;
-        }
-        .sides {
-            background-image: url(../public/assets/icons/Baozi.svg);
-            background-repeat: no-repeat;
-            background-size: 75%;
-            background-position: center;
-        }
-        .desserts {
-            background-image: url(../public/assets/icons/Pudding.svg);
-            background-repeat: no-repeat;
-            background-size: 75%;
-            background-position: center;
-        }
-        .drinks {
-            background-image: url(../public/assets/icons/Drink.svg);
-            background-repeat: no-repeat;
-            background-size: 55%;
-            background-position: center;
-        }
-    }
-
-    .list__names {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1.4rem;
-        font-size: .9rem;
-        
-
-        p {
-            margin: 0;
-        }
-    }
-}
-
-.SearchBar {
+  ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    position: relative;
+    list-style: none;
+    gap: 1rem;
+    margin-top: 1.3rem;
+    margin-bottom: 5rem;
+    padding: 0;
 
-    
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: .5rem;
 
-    input {
-        width: 18rem;
-        height: 3rem;
-        border-radius: 2rem;
-        border: none;
-        margin-top: 3rem;
+
+      img {
+        padding: .5rem;
+        width: 2rem;
+        height: 2rem;
         background-color: $font-color;
-        display: flex;
-        background-image: url(../public/assets/icons/search.svg);
-        background-size: 10%;
-        background-position: left center;
-        background-position-x: 4%;
-        background-position-y: 60%;
-        background-repeat: no-repeat;
-        padding-left: 2rem;
-        font-size: larger;
-        &:focus {
-            background-image: none;
-            outline: none;
-        }
-
-    }
-
-    button {
-        background-image: url(../public/assets/icons/filter.svg);
-        background-repeat:no-repeat;
-        background-position: center;
-        background-color: $font-color;
-        border: none;
-        background-size: 60%;
-        position: absolute;
-        height: 3rem;
-        width: 3rem;
         border-radius: 50%;
-        right: 0;
-        top: 75%;
-        transform: translateY(-50%) translateX(-65%);
+        gap: 1.5rem;
+        object-fit: contain;
+      }
     }
+  }
 }
 
+.SearchBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .input-wrapper {
+    position: relative;
+  }
+
+  input {
+    width: 18rem;
+    height: 3rem;
+    border-radius: 2rem;
+    border: none;
+    margin-top: 3rem;
+    background-color: $font-color;
+    display: flex;
+    background-image: url(../public/assets/icons/search.svg);
+    background-size: 10%;
+    background-position: left center;
+    background-position-x: 4%;
+    background-position-y: 60%;
+    background-repeat: no-repeat;
+    padding-left: 2rem;
+    font-size: larger;
+    &:focus {
+      background-image: none;
+      outline: none;
+    }
+  }
+
+  button {
+    background-image: url(../public/assets/icons/filter.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $font-color;
+    border: none;
+    background-size: 60%;
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    right: 0;
+    top: 75%;
+    transform: translateY(-50%);
+  }
+}

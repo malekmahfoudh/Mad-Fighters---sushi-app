@@ -1,0 +1,40 @@
+@import './variables';
+
+.profile-container {
+    height: 100vh;
+    background-image: url(./public/assets/img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .logo {
+            width: 15rem;
+        }
+    }
+    .profile-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin-right: 2rem;
+        img {
+            height: Ellipse 9;
+            width: 5rem;
+            box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.323);
+            border-radius: 50%;
+        }
+        li {
+            list-style: none;
+            text-align: right;
+            font-size: 1.5rem;
+            margin: 3rem 0;
+            color: white;
+        }
+        p {
+            color: white;
+
+            font-family: $font-family-base;
+        }
+    }
+}

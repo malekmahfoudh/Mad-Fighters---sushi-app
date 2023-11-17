@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/Header.scss'
+import { NavLink } from 'react-router-dom';
 
 function Header() {
     return ( 
@@ -11,8 +12,9 @@ function Header() {
                     <h3>Hello, John</h3>
                     <p>Branteviksgatan 5B</p>
                 </section>
-
-                <img src="./public/assets/img/profile-image.svg" alt="profile image" />
+                <NavLink to='/profile'>
+                    <img src="./public/assets/img/profile-image.svg" alt="profile image" />
+                </NavLink>
             </section>
         </header>
      );

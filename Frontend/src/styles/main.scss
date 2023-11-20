@@ -3,12 +3,13 @@
 @import 'swiper/scss';
 @import "HeroFood";
 @import "SearchBar";
-
 @import "FoodCard";
+@import "Overlay";
 
 body {
   font-family: $font-family-base;
   color: $font-color;
   background-color: $background-color;
+  margin: 0;
 
 }

@@ -19,19 +19,20 @@
   border-top-left-radius: 1.25rem;
   border-top-right-radius: 1.25rem;
   z-index: 30;
-  transform: translate(2.4%, -60%);
+  transform: translate(2.4%, -45%);
 
 }
 }
 
 .ChosenDishContainer {
   width: 22rem;
-  height: 25rem;
+  height: 27rem;
   @include chosen-dish-background-color;
   z-index: 20;
   overflow: visible;
   position: relative;
-  border-radius: 10%;
+  border-radius: 1.25rem;
+  margin-top: 10rem;
 }
 
 .ChosenDishInfo {
@@ -54,9 +55,28 @@
         height: 4rem;
         background-color: $button-color;
         border: 5px solid $background-color;
+        background-image: url(../public/assets/icons/plus.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
         border-radius: 50%;
         font-size: 4rem;
-
+        transform: translateY(-40%);
     }
 }
 
+.close_btn {
+    position: absolute;
+    top: 9rem !important;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: $font-color;
+    background-image: url(../public/assets/icons/x.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    border-radius: 50%;
+    font-size: 4rem;
+    transform: translateY(-40%);
+}

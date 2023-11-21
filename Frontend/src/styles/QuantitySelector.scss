@@ -1,0 +1,54 @@
+.QuantityWrapper {
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    p {
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+}
+
+.QuantityInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 1.7rem;
+}
+
+
+input {
+    all: unset;
+    background-color: #1c1c1c6a;
+    width: 2rem;
+    text-align: center;
+    font-size: large;
+}
+
+
+
+.minus_btn {
+    border-radius: 1rem 0 0 1rem;
+    border: none;
+    background-image: url(../public/assets/icons/minus.svg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    width: 2rem;
+    background-color: #1c1c1c6a;
+
+
+}
+
+.plus_btn {
+    border-radius: 0 1rem 1rem 0;
+    border: none;
+    background-image: url(../public/assets/icons/plus.svg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    width: 2rem;
+    background-color: #1c1c1c6a;
+}

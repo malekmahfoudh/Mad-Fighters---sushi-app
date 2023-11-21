@@ -1,173 +1,224 @@
 [
     {
         "id": 1,
-         "name": "Sashimi salad",
-         "price": 12.00,
-         "image": "sashimi-salad.jpg",
-         "category": "Cold starters",
-         "description": "Organic greens topped with market fresh sashimi, wasabi soy vinaigrette.",
-         "featured": true
+        "title": "Onigiri",
+        "price": 40,
+        "image": "mat.svg",
+        "category": "starters",
+        "description": "Japanese rice ball filled with salmon, wrapped in nori.",
+        "vegetarian": false,
+        "featured": false,
+        "info": {
+            "quantity": 1,
+            "allergy": "Gluten free",
+            "spice": "Mild"
+        }
     },
     {
         "id": 2,
-         "name": "Chirashi sushi",
-         "price": 21.00,
-         "image": "chirashi-sushi.jpg",
-         "category": "Cold starters",
-         "description": "Sushi bar variety with sushi rice.",
-         "featured": false
+         "title": "Vegetable Gyoza",
+         "price": 40,
+         "image": "mat.svg",
+         "category": "starters",
+         "description": "Japanese pan fried dumplings filled with vegetables. Served with a dip made of rice vinegar, soy sauce and roasted sesame oil.",
+         "vegetarian": true,
+         "featured": true,
+         "info": {
+             "quantity": 5,
+             "allergy": "Gluten free",
+             "spice": "Mild"
+         }
     },
     {
         "id": 3,
-         "name": "Seaweed salad",
-         "price": 17.00,
-         "image": "seaweed-salad.jpg",
-         "category": "Cold starters",
-         "description": "A nice seaweed salad.",
-         "featured": true
+         "title": "Agedashi Tofu",
+         "price": 40,
+         "image": "mat.svg",
+         "category": "starters",
+         "description": "Crispy fried cubes of tofu served with chopped green onions and a tasty sauce.",
+         "vegetarian": true,
+         "featured": false,
+         "info": {
+             "quantity": 1,
+             "allergy": "Gluten free",
+             "spice": "Mild"
+         }
     },
     {
         "id": 4,
-         "name": "Edamame",
-         "price": 4.00,
-         "image": "edamame.jpg",
-         "category": "Warm Starters",
-         "description": "Boiled soy beans with salt ",
-         "featured": true
+        "title": "12pc Sushi Mix",
+        "price": 130,
+        "image": "mat.svg",
+        "category": "main",
+        "description": "Chef's selection of sushi, including nigiri, maki and rolls. Served with wasabi and soy sauce.",
+        "vegetarian": false,
+        "featured": true,
+        "info": {
+            "quantity": 12,
+            "allergy": "Contains gluten",
+            "spice": "Mild"
+        }
     },
     {
         "id": 5,
-         "name": "Miso soup",
-         "price": 4.00,
-         "image": "miso-soup.jpg",
-         "category": "Warm Starters",
-         "description": "Soy bean soup with Wacame seaweed, tofu and spring onion.",
-         "featured": false
+        "title": "12pc Mix Sushi Veggie",
+        "price": 130,
+        "image": "mat.svg",
+        "category": "main",
+        "description": "Chef's selection of sushi, including nigiri, maki and rolls. Suitible for vegetarians. Served with wasabi and soy sauce.",
+        "vegetarian": true,
+        "featured": false,
+        "info": {
+            "quantity": 12,
+            "allergy": "Contains gluten",
+            "spice": "Mild"
+        }
     },
     {
         "id": 6,
-         "name": "Maguro",
-         "price": 12.50,
-         "image": "maguro.jpg",
-         "category": "Sashimi",
-         "description": "Tuna pieces.",
-         "featured": true
+         "title": "Spicy Tuna Rolls",
+         "price": 130,
+         "image": "mat.svg",
+         "category": "main",
+         "description": "Spicy rolls with tuna tossed in sesame sriracha sauce. Served with wasabi and soy sauce.",
+         "vegetarian": false,
+         "featured": false,
+         "info": {
+             "quantity": 12,
+             "allergy": "Contains gluten",
+             "spice": "Medium hot"
+         }
     },
     {
         "id": 7,
-         "name": "Shake",
-         "price": 10.00,
-         "image": "shake.jpg",
-         "category": "Sashimi",
-         "description": "",
-         "featured": false
+        "title": "Bibimbap",
+        "price": 140,
+        "image": "mat.svg",
+        "category": "main",
+        "description": "Rice bowl topped with seasoned sautéed vegetables, marinated beef, a fried egg sunny side up, finished with a sprinkle of sesame gochujang sauce.",
+        "vegetarian": false,
+        "featured": true,
+        "info": {
+            "quantity": 1,
+            "allergy": "Contains gluten",
+            "spice": "Hot"
+        }
     },
     {
         "id": 8,
-         "name": "Shiromi",
-         "price": 9.50,
-         "image": "shiromi.jpg",
-         "category": "Sashimi",
-         "description": "White fish pieces.",
-         "featured": false
+         "title": "Miso Soup",
+         "price": 50,
+         "image": "mat.svg",
+         "category": "sides",
+         "description": "Traditional Japanese soup made with seaweed and green onions in a miso broth. Served hot.",
+         "vegetarian": true,
+         "featured": false,
+         "info": {
+             "quantity": 1,
+             "allergy": "Gluten free",
+             "spice": "Mild"
+         }
     },
     {
         "id": 9,
-         "name": "Tekka maki",
-         "price": 6.00,
-         "image": "tekka-maki.jpg",
-         "category": "Hosomaki",
-         "description": "Tuna roll with wasabi. - 6 pieces",
-         "featured": true
+         "title": "Wakame",
+         "price": 50,
+         "image": "mat.svg",
+         "category": "sides",
+         "description": "Seaweed salad with a subtly sweet but distinctive and strong flavour and texture.",
+         "vegetarian": true,
+         "featured": false,
+         "info": {
+             "quantity": 1,
+             "allergy": "Gluten free",
+             "spice": "Mild"
+         }
     },
     {
         "id": 10,
-         "name": "Hosomaki Mix",
-         "price": 17.00,
-         "image": "hosomaki-mix.jpg",
-         "category": "Hosomaki",
-         "description": "18 pieces.",
-         "featured": false
+         "title": "Spring Rolls",
+         "price": 60,
+         "image": "mat.svg",
+         "category": "sides",
+         "description": "Springrolls filled with vegetables.",
+         "vegetarian": true,
+         "featured": false,
+         "info": {
+             "quantity": 5,
+             "allergy": "Contains gluten",
+             "spice": "Mild"
+         }
     },
     {
         "id": 11,
-         "name": "California rolls",
-         "price": 7.75,
-         "image": "california-rolls.jpg",
-         "category": "Traditionall Rolls",
-         "description": "Crab sticks, avocado and cucumber. - 8 pieces",
-         "featured": true
+         "title": "Mochi",
+         "price": 90,
+         "image": "mat.svg",
+         "category": "dessert",
+         "description": "3 pieces of traditional Japanese ice cream dessert wrapped in sweet rice cake. Flavors: mango, strawberry and plum.",
+         "vegetarian": true,
+         "featured": false,
+         "info": {
+             "quantity": 3,
+             "allergy": "Gluten free",
+             "spice": "Mild"
+         }
     },
     {
         "id": 12,
-         "name": "Seattle rolls",
-         "price": 8.00,
-         "image": "seattle-rolls.jpg",
-         "category": "Traditionall Rolls",
-         "description": "Smoked salmon. Cucumber. Cream cheese.",
-         "featured": false
+         "title": "Dorayaki",
+         "price": 90,
+         "image": "dessert.svg",
+         "category": "dessert",
+         "description": "Traditional and popular Japanese honey pancake with sweet red bean paste. Sweet and fluffy.",
+         "vegetarian": true,
+         "featured": false,
+         "info": {
+             "quantity": 3,
+             "allergy": "Contains gluten",
+             "spice": "Mild"
+         }
     },
     {
         "id": 13,
-         "name": "Spicy Tuna rolls",
-         "price": 6.00,
-         "image": "spicytuna-rolls.jpg",
-         "category": "Traditionall Rolls",
-         "description": "Spicy tuna, spring onion and avocado. - 6 pieces",
-         "featured": true
+         "title": "Matcha Ice Cream",
+         "price": 60,
+         "image": "mat.svg",
+         "category": "dessert",
+         "description": "Ice cream with intense flavor of authentic Japanese green tea.",
+         "vegetarian": true,
+         "featured": false,
+         "info": {
+             "quantity": 1,
+             "allergy": "Gluten free",
+             "spice": "Mild"
+         }
     },
     {
         "id": 14,
-         "name": "Ebi rolls",
-         "price": 8.00,
-         "image": "ebi-rolls.jpg",
-         "category": "Traditionall Rolls",
-         "description": "King prawns, avocado and asparagus. - 8 pieces",
+         "title": "Soda",
+         "price": 30,
+         "image": "mat.svg",
+         "category": "drinks",
+         "description": "33 cl soda of your choice: pepsi, fanta or 7up.",
          "featured": false
     },
     {
         "id": 15,
-         "name": "Chicken Teriyaki",
-         "price": 12.00,
-         "image": "chicken-teriyaki.jpg",
-         "category": "Hot Dishes",
-         "description": "Sauted chicken with teiyaki sauce.",
+         "title": "Mineral Water",
+         "price": 30,
+         "image": "mat.svg",
+         "category": "drinks",
+         "description": "33 cl sparkling mineral water.",
          "featured": false
     },
     {
         "id": 16,
-         "name": "Salmon Teriyaki",
-         "price": 13.50,
-         "image": "salmon-teriyaki.jpg",
-         "category": "Hot Dishes",
-         "description": "Sauted salmon with teriyaki sauce.",
-         "featured": true
-    },
-    {
-        "id": 17,
-         "name": "Gohan",
-         "price": 3.00,
-         "image": "gohan.jpg",
-         "category": "Hot Dishes",
-         "description": "Steamed rice.",
+         "title": "Coffee",
+         "price": 20,
+         "image": "mat.svg",
+         "category": "drinks",
+         "description": "Freshly brewed coffee. Served black or with milk and sugar.",
          "featured": false
-    },
-    {
-        "id": 18,
-         "name": "Tori Katsu",
-         "price": 11.00,
-         "image": "tori-katsu.jpg",
-         "category": "Hot Dishes",
-         "description": "Pan-fried chicken breast with yasai salad.",
-         "featured": false
-    },
-    {
-        "id": 19,
-         "name": "Yaki Udon",
-         "price": 11.50,
-         "image": "yaki-udon.jpg",
-         "category": "Hot Dishes",
-         "description": "Udon noddles with chicken, king prawns and vegetables.",
-         "featured": true
     }
 ]

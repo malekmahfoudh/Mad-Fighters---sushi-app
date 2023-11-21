@@ -14,6 +14,10 @@ $green-button-color: #1B813E;
     background: linear-gradient(#626262, #62626200);
 }
 
+@mixin chosen-dish-background-color {
+    background: linear-gradient(#626262, #6262629a);
+}
+
 @mixin veggie-card-background-color {
     background: linear-gradient(#42602D, #42602D00);
 }

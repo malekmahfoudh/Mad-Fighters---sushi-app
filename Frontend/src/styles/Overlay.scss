@@ -1,0 +1,82 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+
+  img {
+    position: absolute;
+  width: 80%;
+  height: 40%;
+  object-fit: cover;
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1.25rem;
+  z-index: 30;
+  transform: translate(2.4%, -45%);
+
+}
+}
+
+.ChosenDishContainer {
+  width: 22rem;
+  height: 27rem;
+  @include chosen-dish-background-color;
+  z-index: 20;
+  overflow: visible;
+  position: relative;
+  border-radius: 1.25rem;
+  margin-top: 10rem;
+}
+
+.ChosenDishInfo {
+    margin-top: 7rem;
+    padding: 1rem;
+}
+
+.ChosenDishInfo_container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.ChosenDishAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        width: 4rem;
+        height: 4rem;
+        background-color: $button-color;
+        border: 5px solid $background-color;
+        background-image: url(../public/assets/icons/plus.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+        border-radius: 50%;
+        font-size: 4rem;
+        transform: translateY(-40%);
+    }
+}
+
+.close_btn {
+    position: absolute;
+    top: 9rem !important;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    background-color: $font-color;
+    background-image: url(../public/assets/icons/x.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    border-radius: 50%;
+    font-size: 4rem;
+    transform: translateY(-40%);
+}

@@ -1,18 +1,33 @@
 import React from "react";
+import { useEffect, useState } from "react";  
+import { Overlay } from '../components/ChosenDish';
 
-function FoodCard({ price, pieces, onClick }) {
+function FoodCard({ menu, product }) {
+    const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
+    const openOverlay = () => {
+      console.log('open');
+      setIsOverlayOpen(true);
+    }
+  
+    const closeOverlay = () => { 
+      setIsOverlayOpen(false);
+    }
+
   return (
-    <main className='FoodCard_wrapper' >
-      <article className="FoodCard" onClick={onClick}>
+    <>
+      <article className={`FoodCard ${product.vegetarian ? 'FoodCard-vegetarian': ''}` } onClick={openOverlay}>
+        
         <section>
           <img src="./public/assets/img/mat.svg" alt="" />
           <section className="info">
-            <p>{pieces} 12pc mix</p>
-            <p>{price} 130 sek</p>
+            <p> {product.title} </p>
+            <p> {product.price} sek</p>
           </section>
         </section>
       </article>
-    </main>
+      {isOverlayOpen && <Overlay close={closeOverlay} />}
+    </>
   );
 }
 

@@ -23,3 +23,13 @@
     color: $font-color;
     text-decoration: none;
 }
+
+.FoodCard_wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+
+.FoodCard-vegetarian {
+     @include veggie-card-background-color;
+}

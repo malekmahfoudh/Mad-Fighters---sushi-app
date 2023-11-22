@@ -35,9 +35,22 @@
   margin-top: 10rem;
 }
 
+.ChosenDishContainer-vegetarian {
+  @include chosen-veggie-card-background-color;
+}
+
+.ChosenDishTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
 .ChosenDishInfo {
     margin-top: 7rem;
     padding: 1rem;
+
+    .description {
+      font-size: small;
+    }
 }
 
 .ChosenDishInfo_container {

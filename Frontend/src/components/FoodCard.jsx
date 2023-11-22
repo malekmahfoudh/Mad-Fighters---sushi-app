@@ -6,7 +6,6 @@ function FoodCard({ menu, product }) {
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
     const openOverlay = () => {
-      console.log('open');
       setIsOverlayOpen(true);
     }
   
@@ -26,7 +25,7 @@ function FoodCard({ menu, product }) {
           </section>
         </section>
       </article>
-      {isOverlayOpen && <Overlay close={closeOverlay} />}
+      {isOverlayOpen && <Overlay product={product} close={closeOverlay} />}
     </>
   );
 }

@@ -8,7 +8,7 @@ import { Autoplay } from 'swiper/modules';
 
 function HeroFood() {
     return ( 
-        <main className="HeroFoodsContainer">
+        <section className="HeroFoodsContainer">
              <Swiper
         slidesPerView={1.3}
         centeredSlides={true}
@@ -32,7 +32,7 @@ function HeroFood() {
                     <img src="./public/assets/img/sushi-hero-2.svg" alt="food" />
                 </SwiperSlide>
             </Swiper>
-        </main>
+        </section>
      );
 }
 

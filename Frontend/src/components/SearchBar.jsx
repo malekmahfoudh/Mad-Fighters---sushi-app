@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchBar() {
     return ( 
-        <main className="SearchBarContainer">
+        <section className="SearchBarContainer">
             <div className="SearchBar">
                 <div className="input-wrapper">
                     <input type="text" />
@@ -32,7 +32,7 @@ function SearchBar() {
                     </li>
                 </ul>
 
-        </main>
+        </section>
      );
 }
 

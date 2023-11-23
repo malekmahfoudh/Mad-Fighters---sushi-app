@@ -8,7 +8,7 @@ function About() {
             <section className='logo-container'>
                 <img src="./public/assets/img/logo.svg" alt="logo" className='logo'/>
             </section>
-            <main className='about-info-container'>
+            <section className='about-info-container'>
                 <h2>About Sushi Vibes</h2>
                 <img src="./public/assets/img/chef.png" alt="sushi vibes chef"/>
                 <p className='about-info'>
@@ -20,7 +20,7 @@ function About() {
                 <NavLink to='/profile'>
                     <p className='back-button'>Go back</p>
                 </NavLink>
-            </main>
+            </section>
             
         </section>
      );

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import HeroFood from '../components/HeroFood';
 import SearchBar from '../components/SearchBar';
-import FoodCard from '../components/FoodCard';
+import FeaturedFoods from '../components/FeaturedFoods';
+import NavBar from '../components/NavBar';
 import { Overlay } from '../components/ChosenDish';
 
 function HomePage() {
@@ -14,8 +15,8 @@ function HomePage() {
         <article>
           <h3>Top choices</h3>
         </article>
-        <FoodCard onClick={openOverlay} />
-        {isOverlayOpen && <Overlay close={closeOverlay} />}
+        <FeaturedFoods />
+        <NavBar />
     </main>
   );
 }

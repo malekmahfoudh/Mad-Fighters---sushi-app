@@ -21,7 +21,7 @@ function MyProfile() {
                     <li>Payment options</li>
                     <li>Order history</li>
                 </ul>
-                <button onClick={() => navigate(-1)}>Go back</button>
+                <button onClick={() => navigate('/')}>Go back</button>
             </section>
         </section>
      );

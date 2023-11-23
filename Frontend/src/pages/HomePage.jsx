@@ -4,6 +4,7 @@ import HeroFood from '../components/HeroFood';
 import SearchBar from '../components/SearchBar';
 import FoodCard from '../components/FoodCard';
 import { Overlay } from '../components/ChosenDish';
+import NavBar from '../components/NavBar';
 
 function HomePage() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
@@ -27,6 +28,9 @@ function HomePage() {
         </article>
         <FoodCard onClick={openOverlay} />
         {isOverlayOpen && <Overlay close={closeOverlay} />}
+        <NavBar 
+          account={{opacity: '1'}}
+        />
     </main>
     
     )

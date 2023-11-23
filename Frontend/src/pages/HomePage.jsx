@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import HeroFood from '../components/HeroFood';
 import SearchBar from '../components/SearchBar';
 import FoodCard from '../components/FoodCard';
+import NavBar from '../components/NavBar';
 
 function HomePage() {
   return (
@@ -14,6 +15,9 @@ function HomePage() {
           <h3>Top choices</h3>
         </article>
         <FoodCard />
+        <NavBar 
+          account={{opacity: '1'}}
+        />
     </main>
     
     )

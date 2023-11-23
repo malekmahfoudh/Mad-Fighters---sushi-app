@@ -17,7 +17,7 @@ function MyProfile() {
                     <li>Payment options</li>
                     <li>Order history</li>
                 </ul>
-                <NavLink to='/'>
+                <NavLink to='-1'>
                     <p>Go back</p>
                 </NavLink>
             </main>

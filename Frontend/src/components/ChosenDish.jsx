@@ -26,19 +26,19 @@ export function Overlay({ close, product }) {
           style={{ position: "absolute", top: "10px", right: "10px" }}
           onClick={close}
         ></button>
-        <img src="../assets/img/mat.svg" alt="" />
-        <section className={`ChosenDishContainer  ${product.vegetarian ? 'ChosenDishContainer-vegetarian': ''}`}>
+        <img src={`../${product.image}`}></img>
+        <section
+          className={`ChosenDishContainer  ${
+            product.vegetarian ? "ChosenDishContainer-vegetarian" : ""
+          }`}
+        >
           <div className="ChosenDishInfo">
             <div className="ChosenDishTitle">
-                <h3>
-                {product.title} 
-                </h3>
-                <h3>{product.price} sek</h3>
-                </div>
+              <h3>{product.title}</h3>
+              <h3>{product.price} sek</h3>
+            </div>
             <div className="ChosenDishInfo_container">
-              <p className="description">
-                {product.description}
-              </p>
+              <p className="description">{product.description}</p>
               <div className="ChosenDishDescription">
                 <p>Pieces: {product.info.quantity}</p>
                 <p>{product.info.allergy}</p>

@@ -12,14 +12,15 @@
   z-index: 10;
 
   img {
-    position: absolute;
-  width: 80%;
-  height: 40%;
-  object-fit: cover;
+  position: absolute;
+  width: 18rem;
+  height: 22rem;
+  object-position: center;
+  object-fit: contain;
   border-top-left-radius: 1.25rem;
   border-top-right-radius: 1.25rem;
   z-index: 30;
-  transform: translate(2.4%, -45%);
+  transform: translate(.4%, -45%);
 
 }
 }

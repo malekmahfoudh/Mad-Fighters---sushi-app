@@ -18,7 +18,7 @@ function FoodCard({ menu, product }) {
       <article className={`FoodCard ${product.vegetarian ? 'FoodCard-vegetarian': ''}` } onClick={openOverlay}>
         
         <section>
-          <img src="./public/assets/img/mat.svg" alt="" />
+        <img src={`../${product.image}`}></img>
           <section className="info">
             <p> {product.title} </p>
             <p> {product.price} sek</p>

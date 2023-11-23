@@ -1,0 +1,12 @@
+@import './variables';
+
+.CTAButton {
+    width: 11.6rem;
+    height: 3rem;
+    border-radius: 1.9rem;
+    border: none;
+    background-color: $button-color;
+    color: $font-color;
+    font-size: $font-size-lg;
+    letter-spacing: 0.075rem;
+}

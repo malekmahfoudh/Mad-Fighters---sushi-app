@@ -1,0 +1,29 @@
+@import './variables';
+
+.splash-overlay {
+    background-image: url(./public/assets/img/bg.png);
+    background-color: $background-color;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+    .logo {
+        width: 15rem;
+        margin-top: -16rem;
+    }
+    
+    h1 {
+        margin: 5rem;
+        font-size: $font-size-lg;
+    }
+  }
+
+  

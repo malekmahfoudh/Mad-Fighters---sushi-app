@@ -1,0 +1,35 @@
+@import './variables';
+
+.login-container {
+    height: 100vh;
+    background-image: url(./public/assets/img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .logo {
+            width: 15rem;
+            margin-top: 7rem;
+        }
+    }
+    
+    .welcome-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    h3 {
+        width: 19rem;
+    }
+
+    button {
+        margin: 1rem;
+    }
+}

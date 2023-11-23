@@ -1,4 +1,5 @@
 [
+
     {
         "id": 1,
         "title": "Onigiri",
@@ -7,7 +8,7 @@
         "category": "starters",
         "description": "Japanese rice ball filled with salmon, wrapped in nori.",
         "vegetarian": false,
-        "featured": false,
+        "featured": true,
         "info": {
             "quantity": 1,
             "allergy": "Gluten free",

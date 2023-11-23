@@ -29,7 +29,7 @@ function HomePage() {
         <FoodCard onClick={openOverlay} />
         {isOverlayOpen && <Overlay close={closeOverlay} />}
         <NavBar 
-          account={{opacity: '1'}}
+          menu={{opacity: '1'}}
         />
     </main>
     

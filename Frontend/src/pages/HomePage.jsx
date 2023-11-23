@@ -16,7 +16,7 @@ function HomePage() {
         </article>
         <FoodCard />
         <NavBar 
-          account={{opacity: '1'}}
+          menu={{opacity: '1'}}
         />
     </main>
     

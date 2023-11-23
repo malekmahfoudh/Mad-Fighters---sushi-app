@@ -6,17 +6,6 @@ import FoodCard from '../components/FoodCard';
 import { Overlay } from '../components/ChosenDish';
 
 function HomePage() {
-  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-
-  const openOverlay = () => {
-    console.log('open');
-    setIsOverlayOpen(true);
-  }
-
-  const closeOverlay = () => { 
-    setIsOverlayOpen(false);
-  }
-
   return (
     <main className='HomePage'>
         <Header />
@@ -28,8 +17,7 @@ function HomePage() {
         <FoodCard onClick={openOverlay} />
         {isOverlayOpen && <Overlay close={closeOverlay} />}
     </main>
-    
-    )
+  );
 }
 
 export default HomePage;

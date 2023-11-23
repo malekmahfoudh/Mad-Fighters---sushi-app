@@ -1,0 +1,41 @@
+@import './variables';
+
+.about-container {
+    height: 100vh;
+    background-image: url(./public/assets/img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .logo {
+            width: 15rem;
+        }
+    }
+
+    .about-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        margin: 3rem;
+
+        img {
+            width: 17rem;
+            height: 9.5rem;
+            border-radius: 1.25rem;
+            margin: 2rem;
+        }
+
+        p {
+            line-height: 1.5rem;
+            text-align: center;
+        }
+
+        .back-button {
+            color: white;
+        }
+    }
+
+}

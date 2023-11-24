@@ -1,11 +1,9 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
-function NavBar({ account, menu, cart }) {
+function NavBar({ menu, cart, menuOpen, onMenuClick }) {
      return (
         <footer className="nav-container">
           <section className="bubble-container">
-                <div style={account}></div>
             <NavLink to="/">
                 <div style={menu}></div>
             </NavLink>
@@ -13,17 +11,29 @@ function NavBar({ account, menu, cart }) {
                 <div style={cart}></div>
             </NavLink>
             </section>
-            <section className="icon-container">
-                <section>
-                    <img src="../../public/assets/icons/user.png" alt="" />
+            {menuOpen ? (
+            <>
+                <section className="icon-container" onClick={onMenuClick}>
+                    <section>
+                        <img src="/public/assets/icons/menu.png" alt="" />
+                    </section>
+                    <section>
+                        <img src="/public/assets/icons/cart.png" alt="" />
+                    </section>
                 </section>
-                <section>
-                    <img src="../../public/assets/icons/home.png" alt="" />
+            </>
+            ) : (
+            <>
+                <section className="icon-container" onClick={onMenuClick}>
+                    <section>
+                        <img src="/public/assets/icons/home.png" alt="" />
+                    </section>
+                    <section>
+                        <img src="/public/assets/icons/cart.png" alt="" />
+                    </section>
                 </section>
-                <section>
-                    <img src="../../public/assets/icons/cart.png" alt="" />
-                </section>
-            </section>
+            </>
+            )}
         </footer>
      );
 }

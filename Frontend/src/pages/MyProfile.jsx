@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/MyProfile.scss';
 import { useNavigate, NavLink } from 'react-router-dom';
 

@@ -20,7 +20,7 @@ function FeaturedFoods({onClick}) {
       {
         products && products.map((product,index) => (
             
-           product.featured ?  <FoodCard key={index} product={product} clickEvent={onClick}/> : '' //kom iåg att lägga till .featured här sen 
+           product.featured ?  <FoodCard key={index} product={product} clickEvent={onClick}/> : '' 
         ))
       }
    

@@ -34,7 +34,7 @@
         "id": 3,
          "title": "Agedashi Tofu",
          "price": 40,
-         "image": "mat.svg",
+         "image": "../assets/img/agedashi.svg",
          "category": "starters",
          "description": "Crispy fried cubes of tofu served with chopped green onions and a tasty sauce.",
          "vegetarian": true,
@@ -64,7 +64,7 @@
         "id": 5,
         "title": "12pc Mix Sushi Veggie",
         "price": 130,
-        "image": "mat.svg",
+        "image": "../assets/img/sushimix.svg",
         "category": "main",
         "description": "Chef's selection of sushi, including nigiri, maki and rolls. Suitible for vegetarians. Served with wasabi and soy sauce.",
         "vegetarian": true,
@@ -79,7 +79,7 @@
         "id": 6,
          "title": "Spicy Tuna Rolls",
          "price": 130,
-         "image": "mat.svg",
+         "image": "../assets/img/spicy-tuna.svg",
          "category": "main",
          "description": "Spicy rolls with tuna tossed in sesame sriracha sauce. Served with wasabi and soy sauce.",
          "vegetarian": false,
@@ -109,7 +109,7 @@
         "id": 8,
          "title": "Miso Soup",
          "price": 50,
-         "image": "mat.svg",
+         "image": "../assets/img/miso.svg",
          "category": "sides",
          "description": "Traditional Japanese soup made with seaweed and green onions in a miso broth. Served hot.",
          "vegetarian": true,
@@ -124,7 +124,7 @@
         "id": 9,
          "title": "Wakame",
          "price": 50,
-         "image": "mat.svg",
+         "image": "../assets/img/wakame.svg",
          "category": "sides",
          "description": "Seaweed salad with a subtly sweet but distinctive and strong flavour and texture.",
          "vegetarian": true,
@@ -139,7 +139,7 @@
         "id": 10,
          "title": "Spring Rolls",
          "price": 60,
-         "image": "mat.svg",
+         "image": "../assets/img/springrolls.svg",
          "category": "sides",
          "description": "Springrolls filled with vegetables.",
          "vegetarian": true,
@@ -154,7 +154,7 @@
         "id": 11,
          "title": "Mochi",
          "price": 90,
-         "image": "mat.svg",
+         "image": "../assets/img/mochi.svg",
          "category": "dessert",
          "description": "3 pieces of traditional Japanese ice cream dessert wrapped in sweet rice cake. Flavors: mango, strawberry and plum.",
          "vegetarian": true,
@@ -169,11 +169,11 @@
         "id": 12,
          "title": "Dorayaki",
          "price": 90,
-         "image": "dessert.svg",
+         "image": "../assets/img/dorayaki.svg",
          "category": "dessert",
          "description": "Traditional and popular Japanese honey pancake with sweet red bean paste. Sweet and fluffy.",
          "vegetarian": true,
-         "featured": false,
+         "featured": true,
          "info": {
              "quantity": 3,
              "allergy": "Contains gluten",
@@ -184,7 +184,7 @@
         "id": 13,
          "title": "Matcha Ice Cream",
          "price": 60,
-         "image": "mat.svg",
+         "image": "../assets/img/matcha.svg",
          "category": "dessert",
          "description": "Ice cream with intense flavor of authentic Japanese green tea.",
          "vegetarian": true,
@@ -199,27 +199,42 @@
         "id": 14,
          "title": "Soda",
          "price": 30,
-         "image": "mat.svg",
+         "image": "../assets/img/soda.svg",
          "category": "drinks",
          "description": "33 cl soda of your choice: pepsi, fanta or 7up.",
-         "featured": false
+         "featured": true,
+         "info": {
+            "quantity": 1,
+            "allergy": "none",
+            "spice": "none"
+        }
     },
     {
         "id": 15,
          "title": "Mineral Water",
          "price": 30,
-         "image": "mat.svg",
+         "image": "../assets/img/water.svg",
          "category": "drinks",
          "description": "33 cl sparkling mineral water.",
-         "featured": false
+         "featured": false,
+         "info": {
+            "quantity": 1,
+            "allergy": "none",
+            "spice": "none"
+        }
     },
     {
         "id": 16,
          "title": "Coffee",
          "price": 20,
-         "image": "mat.svg",
+         "image": "../assets/img/coffee.svg",
          "category": "drinks",
          "description": "Freshly brewed coffee. Served black or with milk and sugar.",
-         "featured": false
+         "featured": false,
+         "info": {
+            "quantity": 1,
+            "allergy": "none",
+            "spice": "none"
+        }
     }
 ]

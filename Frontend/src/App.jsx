@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./redux/store.js";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addProducts } from "./redux/slices/productsSlice.js";
 
 import HomePage from "./pages/HomePage.jsx";
 import MyProfile from "./pages/MyProfile.jsx";
@@ -12,8 +13,15 @@ import Login from "./pages/Login.jsx";
 import Menu from "./pages/Menu.jsx";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(()=> {
+    fetch('./public/menu.json')
+    .then(res => res.json())
+    .then(data => dispatch(addProducts(data)));
+  },[]);
+
   return (
-    <Provider store={store}>
+    
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -24,7 +32,6 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
-    </Provider>
   );
 }
 

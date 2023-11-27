@@ -6,16 +6,19 @@ import NavBar from "../components/NavBar"
 import { useEffect, useState } from "react";
 import { useNavigate, NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
-import { setProducts } from "../redux/action";
+import { useDispatch, useSelector} from "react-redux";
+import { addProducts} from "../redux/slices/productsSlice";
+
 
 function Menu({onClick}) {
-  const [products,setProducts] = useState([]); 
+ const [products,setProducts] = useState([]);
+  const stateProducts = useSelector(state => state.products); 
 
   useEffect(()=> {
-    fetch('./public/menu.json')
-    .then(res => res.json())
-    .then(data => setProducts(data)); 
-},[setProducts]);
+    setProducts(stateProducts);
+    console.log(stateProducts);
+  },[stateProducts]);
+
 
     const navigate = useNavigate();
   return (
@@ -35,10 +38,4 @@ function Menu({onClick}) {
   );
 }
 
-const mapStateToProps = state => ({
-  products: state.products,
-});
-
-const mapDispatchToProps = { setProducts };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default Menu;

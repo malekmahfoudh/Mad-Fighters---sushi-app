@@ -3,7 +3,6 @@ import HeroFood from '../components/HeroFood';
 import SearchBar from '../components/SearchBar';
 import FeaturedFoods from '../components/FeaturedFoods';
 import NavBar from '../components/NavBar';
-import { Overlay } from '../components/ChosenDish';
 import { useState } from 'react';
 
 function HomePage() {

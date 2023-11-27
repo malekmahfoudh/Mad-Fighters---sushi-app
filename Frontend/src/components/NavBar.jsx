@@ -17,28 +17,28 @@ function NavBar({ menu, cart, menuOpen, onMenuClick }) {
             </section>
             {location.pathname === "/menu" ? (
             <>
-                <section className="icon-container" onClick={onMenuClick}>
-                    <section>
-                        <img src="/public/assets/icons/menu.png" alt="" />
+                <section className="icon-container" >
+                    <section onClick={onMenuClick}>
+                        <img src="/public/assets/icons/menu.png" alt=""  />
                     </section>
-                    <section>
+                    <section onClick={onMenuClick}>
                         <img src="/public/assets/icons/home2.png" alt="" />
                     </section>
-                    <section>
+                    <section onClick={onMenuClick}>
                         <img src="/public/assets/icons/cart.png" alt="" />
                     </section>
                 </section>
             </>
             ) : (
             <>
-                <section className="icon-container" onClick={onMenuClick}>
-                    <section>
+                <section className="icon-container">
+                    <section  onClick={onMenuClick}>
                         <img src="/public/assets/icons/home.png" alt="" />
                     </section>
-                    <section>
+                    <section  onClick={onMenuClick}>
                         <img src="/public/assets/icons/home2.png" alt="" />
                     </section>
-                    <section>
+                    <section  onClick={onMenuClick}>
                         <img src="/public/assets/icons/cart.png" alt="" />
                     </section>
                 </section>

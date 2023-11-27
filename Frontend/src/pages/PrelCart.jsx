@@ -17,16 +17,16 @@ function Cart() {
     return ( 
         <section className='CartContainer'>
             <Header />
-            {
-        products && products.map((product,index) => (
-           <HorizontalFoodCard key={index} product={product}/>))
-      }
-            <input type="text" placeholder='Add comment to the chef...' />
-            <h2>Total: (sum)</h2>
-            <button>Place order</button>
-            <NavBar 
-          cart={{opacity: '1'}}
-        />
+            <section className='AddedItems'>
+                {products && products.map((product,index) => (
+                <HorizontalFoodCard key={index} product={product}/>))}
+            </section>
+            <section className='OrderInfo'>
+                <input type="text" placeholder='Add comment to the chef...' />
+                <h2>Total: (sum)</h2>
+                <button>Place order</button>
+            </section>
+            <NavBar cart={{opacity: '1'}}/>
         </section>
      );
 }

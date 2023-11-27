@@ -9,19 +9,15 @@
         padding-left: 2rem;
         padding-top: .5rem;
         margin-bottom: -.5rem;
-        
     }
-
     p {
         font-family: $font-family-base;
         margin-top: .6rem;
         margin-left: .6rem;
         font-size: 14px;
     }
-
-  }
-
-  a:-webkit-any-link {
+}
+a:-webkit-any-link {
     color: $font-color;
     text-decoration: none;
 }

@@ -21,7 +21,6 @@ function Cart() {
         products && products.map((product,index) => (
            <HorizontalFoodCard key={index} product={product}/>))
       }
-
             <input type="text" placeholder='Add comment to the chef...' />
             <h2>Total: (sum)</h2>
             <button>Place order</button>

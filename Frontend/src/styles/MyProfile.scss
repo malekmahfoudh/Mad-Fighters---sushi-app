@@ -33,8 +33,15 @@
         }
         p {
             color: white;
-
             font-family: $font-family-base;
+        }
+        button {
+            background: none;
+            color: $sushi-red-color;
+            border: none;
+            font-size: 1.2rem;
+            font-family: $font-family-base;
+            font-style: italic;
         }
     }
 }

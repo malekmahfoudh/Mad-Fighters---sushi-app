@@ -10,6 +10,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    .HorizontalInfo {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
     img {
         height: 9rem;
         margin-left: 1.5rem;
@@ -18,5 +24,10 @@
     p {
         font-family: $font-family-base;
         font-size: 20px;
+        margin: 0;
     }
+}
+
+.HorizontalFoodCard-vegetarian {
+    background: linear-gradient(to right,#42602D, #42602D00);
 }

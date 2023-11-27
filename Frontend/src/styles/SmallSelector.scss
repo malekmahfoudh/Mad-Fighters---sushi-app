@@ -1,0 +1,37 @@
+.SelectorInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 1.7rem;
+    margin-top: 1.5rem;
+}
+
+.SelectorInput_field {
+    all: unset;
+    background-color: #666565;
+    width: 2rem;
+    text-align: center;
+    font-size: large;
+}
+
+.MinusButton {
+    border-radius: 1rem 0 0 1rem;
+    border: none;
+    background-image: url(../public/assets/icons/minus.svg);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+    width: 2rem;
+    background-color: #515050;
+}
+
+.PlusButton {
+    border-radius: 0 1rem 1rem 0;
+    border: none;
+    background-image: url(../public/assets/icons/plus.svg);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+    width: 2rem;
+    background-color: #515050;
+}

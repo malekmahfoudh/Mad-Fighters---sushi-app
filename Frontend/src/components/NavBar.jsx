@@ -11,7 +11,7 @@ function NavBar({ menu, cart, menuOpen, onMenuClick }) {
             <NavLink to="/">
                 <div style={menu}></div>
             </NavLink>
-            <NavLink to="cart">
+            <NavLink to="/cart">
                 <div style={cart}></div>
             </NavLink>
             </section>

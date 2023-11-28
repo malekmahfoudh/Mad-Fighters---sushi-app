@@ -15,6 +15,8 @@ import { addProductToCart } from "./redux/slices/cart.js";
 
 function App() {
   const dispatch = useDispatch();
+  
+  //fetch from the remote server and add the data to the redux store
   useEffect(()=> {
     fetch('https://sushi-vibes.onrender.com/api/menu')
     .then(res => res.json())

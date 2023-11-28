@@ -15,3 +15,16 @@ const productsSlice = createSlice({
 
 export const { addProducts } = productsSlice.actions
 export default productsSlice.reducer
+
+
+//import { createSlice } from '@reduxjs/toolkit'
+
+// slice = {
+//   name,
+//   initialState,
+//   reducer {
+//     action:(state, action) => {}
+// }
+
+//export const { action } = slice.actions
+//export default slice.reducer 

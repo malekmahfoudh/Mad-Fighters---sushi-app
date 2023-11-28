@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";  
 import { Overlay } from '../components/ChosenDish';
 
-function FoodCard({ menu, product }) {
+function FoodCard({ menu, product= {}}) {
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
     const openOverlay = () => {

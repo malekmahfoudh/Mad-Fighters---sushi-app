@@ -5,18 +5,15 @@ import SearchBar from "../components/SearchBar";
 import NavBar from "../components/NavBar"
 import { useEffect, useState } from "react";
 import { useNavigate, NavLink } from 'react-router-dom';
-import { connect } from "react-redux";
-import { useDispatch, useSelector} from "react-redux";
-import { addProducts} from "../redux/slices/productsSlice";
+import {  useSelector} from "react-redux";
 
 
 function Menu({onClick}) {
  const [products,setProducts] = useState([]);
-  const stateProducts = useSelector(state => state.products); 
+  const stateProducts = useSelector(state => state.products.products); 
 
   useEffect(()=> {
     setProducts(stateProducts);
-    console.log(stateProducts);
   },[stateProducts]);
 
 

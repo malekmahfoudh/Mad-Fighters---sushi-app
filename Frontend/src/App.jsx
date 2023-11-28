@@ -11,13 +11,17 @@ import Cart from "./pages/Cart.jsx";
 import About from "./pages/About.jsx";
 import Login from "./pages/Login.jsx";
 import Menu from "./pages/Menu.jsx";
+import { addProductToCart } from "./redux/slices/cart.js";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(()=> {
-    fetch('./public/menu.json')
+    fetch('https://sushi-vibes.onrender.com/api/menu')
     .then(res => res.json())
-    .then(data => dispatch(addProducts(data)));
+    .then(data => {
+      dispatch(addProducts(data.menu));
+      dispatch(addProductToCart(data.menu));
+    })
   },[]);
 
   return (

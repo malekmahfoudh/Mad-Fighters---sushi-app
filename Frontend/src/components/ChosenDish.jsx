@@ -61,7 +61,6 @@ export function Overlay({ close, product }) {
             <div className="QuantitySelector">
               <QuantitySelector price={price} setQuantity={setQuantity} quantity={quantity} />
             </div>
-            <div></div>
             <div className="ChosenDishAdd">
               <button className="add_btn" onClick = {addProduct}></button>
             </div>

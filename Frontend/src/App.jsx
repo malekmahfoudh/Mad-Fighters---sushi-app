@@ -12,6 +12,9 @@ import About from "./pages/About.jsx";
 import Login from "./pages/Login.jsx";
 import Menu from "./pages/Menu.jsx";
 import { addProductToCart } from "./redux/slices/cart.js";
+import NewOrders from './pages/NewOrders.jsx'
+import PreparingOrders from './pages/PreparingOrders.jsx'
+import ReadyOrders from './pages/ReadyOrders.jsx'
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +39,9 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/new-orders" element={<NewOrders />} />
+          <Route path="/preparing-orders" element={<PreparingOrders />} />
+          <Route path="/ready-orders" element={<ReadyOrders />} />
         </Routes>
       </BrowserRouter>
   );

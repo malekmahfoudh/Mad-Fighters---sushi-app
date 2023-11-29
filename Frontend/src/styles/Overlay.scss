@@ -26,6 +26,7 @@
 }
 
 .ChosenDishContainer {
+  position: relative;
   width: 22rem;
   height: 27rem;
   @include chosen-dish-background-color;
@@ -70,11 +71,18 @@
 
 }
 
+.QuantitySelector {
+  display: flex;
+  flex-direction: column;
+}
+
 .ChosenDishAdd {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    height: 5rem;
     button {
+        position: absolute;
         width: 4rem;
         height: 4rem;
         background-color: $button-color;
@@ -85,7 +93,8 @@
         background-size: 50%;
         border-radius: 50%;
         font-size: 4rem;
-        transform: translateY(-40%);
+        top: 25rem;
+        left: 9rem;
     }
 }
 

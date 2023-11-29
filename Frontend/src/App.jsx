@@ -22,7 +22,6 @@ function App() {
     .then(res => res.json())
     .then(data => {
       dispatch(addProducts(data.menu));
-      dispatch(addProductToCart(data.menu));
     })
   },[]);
 

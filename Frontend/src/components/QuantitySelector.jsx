@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-function QuantitySelector({ price }) {
-  const [quantity, setQuantity] = useState(0);
+function QuantitySelector({ price,quantity,setQuantity}) {
 
+  
   const increment = () => {
     setQuantity(quantity + 1);
   };
 
   const decrement = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };

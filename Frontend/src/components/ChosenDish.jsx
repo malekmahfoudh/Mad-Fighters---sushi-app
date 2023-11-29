@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "swiper/scss";
 import QuantitySelector from "./QuantitySelector";
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "../redux/slices/cart";
 
 export function Overlay({ close, product }) {
+  const [quantity, setQuantity] = useState(1);
   const price = product.price;
 
+  const distpatch = useDispatch();  
   const overlayVariants = {
     hidden: { scale: 0 },
     visible: { scale: 1 },
     exit: { scale: 0 },
-  };
+  };  
+
+  function addProduct() {
+    console.log(product);
+    if (quantity > 0) {
+      for (let i = 0; i < quantity; i++) {
+        distpatch(addProductToCart(product));
+      }
+    }
+  }
 
   return (
     <AnimatePresence>
@@ -46,11 +59,11 @@ export function Overlay({ close, product }) {
               </div>
             </div>
             <div className="QuantitySelector">
-              <QuantitySelector price={price} />
+              <QuantitySelector price={price} setQuantity={setQuantity} quantity={quantity} />
             </div>
             <div></div>
             <div className="ChosenDishAdd">
-              <button className="add_btn"></button>
+              <button className="add_btn" onClick = {addProduct}></button>
             </div>
           </div>
         </section>

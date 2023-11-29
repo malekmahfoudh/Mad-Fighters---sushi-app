@@ -4,6 +4,7 @@ import EmptyCart from '../components/EmptyCart';
 import NavBar from '../components/NavBar';
 import { useSelector } from 'react-redux';
 import FoodCard from '../components/FoodCard';
+import HorizontalFoodCard from '../components/HorizontalFoodCard';
 
 function Cart() {
   const [products,setProducts] = useState([]);
@@ -21,7 +22,7 @@ function Cart() {
             {
               products ? products.map((product,index) =>  {
                 return (
-                   <FoodCard key={index} product={product} clickEvent={onClick} />  
+                   <HorizontalFoodCard key={index} product={product} clickEvent={onClick} />  
                 )
               }) : (<EmptyCart />)
             }

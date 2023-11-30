@@ -16,22 +16,37 @@ function Cart() {
   },[cart]);
 
   console.log('cart side: ', products);
-    return ( 
-        <section className='CartContainer'>
-            <Header />
-            {
-              products ? products.map((product,index) =>  {
-                return (
-                   <HorizontalFoodCard key={index} product={product} clickEvent={onClick} />  
-                )
-              }) : (<EmptyCart />)
-            }
-            
-            <NavBar 
-          cart={{opacity: '1'}}
-        />
-        </section>
-     );
+
+  const calculateTotal = () => {
+    if (!products || products.length === 0) {
+      return 0;
+    }
+    const total = products.reduce((acc, product) => acc + product.price, 0);
+    return total;
+  };
+
+  return ( 
+    <section className='CartContainer'>
+      <Header />
+      {products && products.length > 0 ? (
+        <>
+          {products.map((product, index) => (
+            <React.Fragment key={index}>
+              <HorizontalFoodCard product={product} clickEvent={onClick} />
+            </React.Fragment>
+          ))}
+          <section className='OrderInfo'>
+            <input type="text" placeholder='Add a comment to the chef...' />
+            <h2>Total: {calculateTotal()} sek</h2>
+            <button>Place order</button>
+          </section>
+        </>
+      ) : (
+        <EmptyCart />
+      )}
+      <NavBar cart={{ opacity: '1' }} />
+    </section>
+  );
 }
 
 export default Cart;

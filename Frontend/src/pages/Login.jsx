@@ -14,17 +14,20 @@ function Login() {
   useEffect(() => {
     if (clickedButton) {
       setShowSplash(true);
-
+  
       if (clickedButton === 'customer') {
         setSplashMessage('Setting up your account...');
+        setTimeout(() => {
+          setShowSplash(false);
+          navigate('/');
+        }, 2000);
       } else if (clickedButton === 'worker') {
         setSplashMessage('Welcome, Worker!');
+        setTimeout(() => {
+          setShowSplash(false);
+          navigate('/new-orders');
+        }, 2000);
       }
-
-      setTimeout(() => {
-        setShowSplash(false);
-        navigate('/');
-      }, 2000);
     }
   }, [clickedButton, navigate]);
 

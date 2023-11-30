@@ -1,0 +1,50 @@
+@import './variables';
+
+.order-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+.order-overlay-container {
+  margin-top: 7rem;
+  padding: 1rem;
+  border-radius: 1.7rem;
+  background: linear-gradient(180deg, #262525 8.75%,  rgba(107, 105, 105, 0.733) 108.25%);
+  width: 22rem;
+  height: 47rem;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    text-align: center;
+    color: $sushi-red-color;
+  }
+
+  .order-comment {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    line-height: 0;
+  }
+}
+
+.yes-btn {
+  background-color: $green-button-color;
+  width: 6.5rem;
+  height: 3rem;
+  border-radius: 1.875rem;
+  border: none;
+  font-size: $font-size-lg;
+  color: white;
+  display: flex;
+  justify-items: center;
+}

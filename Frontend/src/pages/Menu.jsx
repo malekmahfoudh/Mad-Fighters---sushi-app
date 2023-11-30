@@ -29,8 +29,7 @@ function Menu({onClick}) {
         ))
       }
       </section>
-      <NavBar />
-      
+      <NavBar menu={{ opacity: '1' }} />
     </>
   );
 }

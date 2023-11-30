@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import EmptyCart from '../components/EmptyCart';
 import NavBar from '../components/NavBar';
 import { useSelector } from 'react-redux';
-import FoodCard from '../components/FoodCard';
 import HorizontalFoodCard from '../components/HorizontalFoodCard';
 
 function Cart() {

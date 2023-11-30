@@ -1,9 +1,9 @@
-import React from "react";
-import QuantitySelector from "./QuantitySelector";
+import React, { useState } from "react";
 import SmallSelector from "./SmallSelector";
 
 function HorizontalFoodCard({ menu, product }) {
     const price = product.price;
+    const [quantity, setQuantity] = useState(1);
 
   return (
       <article className={`HorizontalWrapper ${product.vegetarian ? 'HorizontalFoodCard-vegetarian': ''}` }>
@@ -12,7 +12,7 @@ function HorizontalFoodCard({ menu, product }) {
           <section className="HorizontalInfo">
             <p> {product.title} </p>
             <p> {product.price} sek</p>
-           <SmallSelector />
+           <SmallSelector setQuantity={setQuantity} quantity={quantity} />
           </section>
       </article>
   );

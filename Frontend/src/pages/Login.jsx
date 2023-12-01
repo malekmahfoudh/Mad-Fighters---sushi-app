@@ -19,7 +19,7 @@ function Login() {
         setSplashMessage('Setting up your account...');
         setTimeout(() => {
           setShowSplash(false);
-          navigate('/');
+          navigate('/home');
         }, 2000);
       } else if (clickedButton === 'worker') {
         setSplashMessage('Welcome, Worker!');

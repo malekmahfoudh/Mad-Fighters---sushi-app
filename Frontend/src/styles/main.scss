@@ -12,12 +12,60 @@
 @import "SmallSelector";
 @import "Cart";
 
-
-
+#root {
+  height: 100vh;
+}
 body {
   font-family: $font-family-base;
   color: $font-color;
   background-color: $background-color;
   margin: 0;
+  height: 100vh;
+  position: relative;
 
+}
+
+.HomePage {
+  animation: fadeUp 0.5s forwards;
+}
+
+.MenuContainer {
+  animation: fadeRight 0.5s forwards;
+}
+
+.CartContainer {
+  animation: fadeLeft 0.5s forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }

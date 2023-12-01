@@ -1,22 +1,24 @@
-import Header from '../components/Header';
-import HeroFood from '../components/HeroFood';
-import SearchBar from '../components/SearchBar';
-import FeaturedFoods from '../components/FeaturedFoods';
-import NavBar from '../components/NavBar';
+import Header from "../components/Header";
+import HeroFood from "../components/HeroFood";
+import SearchBar from "../components/SearchBar";
+import FeaturedFoods from "../components/FeaturedFoods";
+import NavBar from "../components/NavBar";
+import { motion } from "framer-motion";
 
 function HomePage() {
-
   return (
-    <main className='HomePage'>
-        <Header />
+    <>
+      <Header />
+      <main className="HomePage">
         <HeroFood />
         <SearchBar />
         <article>
           <h3>Top choices</h3>
         </article>
         <FeaturedFoods />
-        <NavBar home={{opacity: '1'}} />
-    </main>
+      </main>
+      <NavBar />
+    </>
   );
 }
 

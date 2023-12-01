@@ -7,6 +7,7 @@ const productsSlice = createSlice({
   },
   reducers: {
     addProducts: (state, action) => {
+      if (state.products.length > 0) state.products = []
       state.products.push(...action.payload)
     }
   },
@@ -15,16 +16,3 @@ const productsSlice = createSlice({
 
 export const { addProducts } = productsSlice.actions
 export default productsSlice.reducer
-
-
-//import { createSlice } from '@reduxjs/toolkit'
-
-// slice = {
-//   name,
-//   initialState,
-//   reducer {
-//     action:(state, action) => {}
-// }
-
-//export const { action } = slice.actions
-//export default slice.reducer 

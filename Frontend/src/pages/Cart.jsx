@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import EmptyCart from '../components/EmptyCart';
 import NavBar from '../components/NavBar';
 import { useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 import HorizontalFoodCard from '../components/HorizontalFoodCard';
 
 function Cart() {
@@ -25,8 +26,9 @@ function Cart() {
   };
 
   return ( 
-    <section className='CartContainer'>
+    <>
       <Header />
+    <section className='CartContainer'>
       {products && products.length > 0 ? (
         <>
           {products.map((product, index) => (
@@ -43,8 +45,9 @@ function Cart() {
       ) : (
         <EmptyCart />
       )}
-      <NavBar cart={{ opacity: '1' }} />
     </section>
+      <NavBar />
+    </>
   );
 }
 

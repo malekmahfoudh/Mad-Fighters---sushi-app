@@ -1,32 +1,19 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
+import "../styles/NavBar.scss";
 
-function NavBar({ home, menu, cart}) {
-     return (
-        <footer className="nav-container">
-          <section className="bubble-container">
-            <NavLink to="/menu">
-                <div style={menu}></div>
-            </NavLink>
-            <NavLink to="/">
-                <div style={home}></div>
-            </NavLink>
-            <NavLink to="/cart">
-                <div style={cart}></div>
-            </NavLink>
-            </section>
-            <section className="icon-container" >
-                <section>
-                    <img src="/public/assets/icons/menu.png" alt=""  />
-                </section>
-                <section>
-                    <img src="/public/assets/icons/home2.png" alt="" />
-                </section>
-                <section>
-                    <img src="/public/assets/icons/cart.png" alt="" />
-                </section>
-            </section>
-        </footer>
-     );
+export default function NavBar() {
+  return (
+    <div class="navbar">
+      <NavLink to="/menu" href="#" class="nav-link">
+        Menu
+      </NavLink>
+      <NavLink to="/home" href="#" class="nav-link">
+        Home
+      </NavLink>
+      <NavLink to="/cart" href="#" class="nav-link">
+        Cart
+      </NavLink>
+    </div>
+  );
 }
-
-export default NavBar;

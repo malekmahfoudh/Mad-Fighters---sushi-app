@@ -1,17 +1,21 @@
 import React from "react";
 import { useEffect, useState } from "react";  
 import FoodCard  from "../components/FoodCard";
+import { useSelector } from "react-redux";
 
 
 function FeaturedFoods({onClick}) {
   const [products,setProducts] = useState([]); 
 
+  const menu = useSelector(state => state.products.products);
+  console.log(menu);
 
   useEffect(()=> {
-      fetch('./public/menu.json')
-      .then(res => res.json())
-      .then(data => setProducts(data)); 
-  },[]);
+    if(menu) {
+      const featured = menu.filter((product) => product.featured === true);
+      setProducts(featured);
+    }
+  },[menu]);
 
 
   return (

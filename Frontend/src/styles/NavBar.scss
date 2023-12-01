@@ -1,34 +1,18 @@
-@import './variables';
+@import "variables";
 
-.nav-container {
-
-    position:fixed ;
+.navbar {
+    position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4.5rem;
-    background-color: #282828;
-    margin-bottom: -.2rem;
-    .bubble-container {
-        display: flex;
-        justify-content: space-around;
-        div {
-            height: 5rem;
-            width: 10rem;
-            background-color: #282828;
-            border-radius: 50%;
-            margin-top: -1.1rem;
-            margin-bottom: -2.7rem;
-            opacity: 0;
-        }
-    }
-    .icon-container {
-        display: flex;
-        justify-content: space-around;
-        img {
-            height: 1.8rem;
-        }
-    }
+    left: 0; // Add this to make sure the navbar starts from the left edge of the viewport
+    right: 0; // Add this to make sure the navbar ends at the right edge of the viewport
+    display: flex;
+    justify-content: space-evenly;
+    background-color: $background-color;
+    z-index: 1000; // Add this to make sure the navbar is always on top
+    box-sizing: border-box; // Add this to include padding and border in the element's total width and height
+  }
+
+.nav-link {
+    color: $font-color;
+    text-decoration: none;
 }
-
-

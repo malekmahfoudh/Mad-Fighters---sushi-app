@@ -20,7 +20,7 @@ function Cart() {
     if (!products || products.length === 0) {
       return 0;
     }
-    const total = products.reduce((acc, product) => acc + product.price, 0);
+    const total = products.reduce((acc, product) => acc + product.product.price * product.quantity, 0);
     return total;
   };
 
@@ -31,7 +31,7 @@ function Cart() {
         <>
           {products.map((product, index) => (
             <React.Fragment key={index}>
-              <HorizontalFoodCard product={product} clickEvent={onClick} />
+              <HorizontalFoodCard product={product.product} quantity={product.quantity} clickEvent={onClick} />
             </React.Fragment>
           ))}
           <section className='OrderInfo'>

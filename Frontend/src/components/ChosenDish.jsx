@@ -16,11 +16,19 @@ export function Overlay({ close, product }) {
     exit: { scale: 0 },
   };  
 
+  // function addProduct() {
+  //   console.log(product);
+  //   if (quantity > 0) {
+  //     for (let i = 0; i < quantity; i++) {
+  //       distpatch(addProductToCart({ product, quantity }));
+  //     }
+  //   }
+  // }
+
   function addProduct() {
-    console.log(product);
     if (quantity > 0) {
       for (let i = 0; i < quantity; i++) {
-        distpatch(addProductToCart(product));
+        distpatch(addProductToCart({ product, quantity: 1 }));
       }
     }
   }

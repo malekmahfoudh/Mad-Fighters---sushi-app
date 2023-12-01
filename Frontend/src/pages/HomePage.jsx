@@ -3,16 +3,8 @@ import HeroFood from '../components/HeroFood';
 import SearchBar from '../components/SearchBar';
 import FeaturedFoods from '../components/FeaturedFoods';
 import NavBar from '../components/NavBar';
-import { useState } from 'react';
 
 function HomePage() {
-
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleMenuClick = () => {
-    console.log("Menu clicked");
-    setMenuOpen(!menuOpen); 
-  };
 
   return (
     <main className='HomePage'>
@@ -23,10 +15,7 @@ function HomePage() {
           <h3>Top choices</h3>
         </article>
         <FeaturedFoods />
-        <NavBar
-          menu={{opacity: '1'}} 
-          menuOpen={menuOpen} 
-          onMenuClick={handleMenuClick}/>
+        <NavBar home={{opacity: '1'}} />
     </main>
   );
 }

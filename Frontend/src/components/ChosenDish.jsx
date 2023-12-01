@@ -5,16 +5,17 @@ import QuantitySelector from "./QuantitySelector";
 import { useDispatch } from "react-redux";
 import { addProductToCart } from "../redux/slices/cart";
 
+
 export function Overlay({ close, product }) {
   const [quantity, setQuantity] = useState(1);
   const price = product.price;
 
-  const distpatch = useDispatch();  
+  const distpatch = useDispatch();
   const overlayVariants = {
     hidden: { scale: 0 },
     visible: { scale: 1 },
     exit: { scale: 0 },
-  };  
+  };
 
   function addProduct() {
     console.log(product);
@@ -34,11 +35,11 @@ export function Overlay({ close, product }) {
         animate="visible"
         exit="exit"
       >
-        <button
+        <motion.button
           className="close_btn"
           style={{ position: "absolute", top: "10px", right: "10px" }}
           onClick={close}
-        ></button>
+        ></motion.button>
         <img src={`../${product.image}`}></img>
         <section
           className={`ChosenDishContainer  ${
@@ -59,12 +60,22 @@ export function Overlay({ close, product }) {
               </div>
             </div>
             <div className="QuantitySelector">
-              <QuantitySelector price={price} setQuantity={setQuantity} quantity={quantity} />
+              <QuantitySelector
+                price={price}
+                setQuantity={setQuantity}
+                quantity={quantity}
+              />
             </div>
-            <div></div>
-            <div className="ChosenDishAdd">
-              <button className="add_btn" onClick = {addProduct}></button>
-            </div>
+              <div className="ChosenDishAdd">
+                <motion.button 
+                  className="add_btn" 
+                  onClick={() => {
+                    addProduct();
+                    close()}}
+                  whileTap={{ scale: 0.9 }}
+                
+                  ></motion.button>
+              </div>
           </div>
         </section>
       </motion.main>

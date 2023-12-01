@@ -1,14 +1,13 @@
 import React from "react";
-import FoodCard from "../components/FoodCard";
+import WorkerFoodCard from "../components/WorkerFoodCard";
 import Header from "../components/Header";
-import SearchBar from "../components/SearchBar";
-import NavBar from "../components/NavBar"
+import WorkersNavBar from "../components/WorkersNavBar"
 import { useEffect, useState } from "react";
-import { useNavigate, NavLink } from 'react-router-dom';
 import {  useSelector} from "react-redux";
+import '../styles/WorkerFoodCard.scss';
 
 
-function Menu({onClick}) {
+function NewOrders({onClick}) {
  const [products,setProducts] = useState([]);
   const stateProducts = useSelector(state => state.products.products); 
 
@@ -17,21 +16,22 @@ function Menu({onClick}) {
   },[stateProducts]);
 
 
-    const navigate = useNavigate();
   return (
     <>
       <Header />
-      <SearchBar />
-      <section className="menu_cards">
+     
+      <section>
       {
         products && products.map((product,index) => (
-           product ?  <FoodCard key={index} product={product} clickEvent={onClick}/> : '' 
+           product ?  <WorkerFoodCard key={index} product={product} clickEvent={onClick}/> : '' 
         ))
       }
       </section>
-      <NavBar menu={{ opacity: '1' }} />
+      
+      <WorkersNavBar />
+      
     </>
   );
 }
 
-export default Menu;
+export default NewOrders;

@@ -24,7 +24,7 @@ function Cart() {
                 return (
                    <HorizontalFoodCard key={index} product={product} clickEvent={onClick} />  
                 )
-              }) : (<EmptyCart />)
+              }) : <EmptyCart />
             }
             
             <NavBar 

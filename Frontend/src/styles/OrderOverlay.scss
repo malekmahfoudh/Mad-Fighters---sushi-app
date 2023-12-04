@@ -15,18 +15,25 @@
 }
 
 .order-overlay-container {
-  margin-top: 7rem;
+  margin: 7rem;
   padding: 1rem;
   border-radius: 1.7rem;
-  background: linear-gradient(180deg, #262525 8.75%,  rgba(107, 105, 105, 0.733) 108.25%);
+  background-image: linear-gradient(to bottom, rgb(39, 37, 37), rgba(56, 53, 53, 0.954), rgba(107, 105, 105, 0.285));
   width: 22rem;
   height: 47rem;
   display: flex;
   flex-direction: column;
 
+  .close_btn {
+    margin-right: 0; // Push close_btn to the right
+    align-self: flex-end; // Align close_btn to the end of the container
+  }
+
   h1 {
-    text-align: center;
+    font-size: $font-size-lg;
     color: $sushi-red-color;
+    text-align: center;
+    margin-top: 5rem;
   }
 
   .order-comment {
@@ -37,7 +44,14 @@
   }
 }
 
-.yes-btn {
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem; // Adjust the margin-top as needed
+}
+
+.yes_btn {
   background-color: $green-button-color;
   width: 6.5rem;
   height: 3rem;
@@ -45,6 +59,5 @@
   border: none;
   font-size: $font-size-lg;
   color: white;
-  display: flex;
-  justify-items: center;
+  margin-top: 6rem; // Add margin-top for the YES button
 }

@@ -5,6 +5,7 @@ import WorkersNavBar from "../components/WorkersNavBar"
 import { useEffect, useState } from "react";
 import {  useSelector} from "react-redux";
 import '../styles/WorkerFoodCard.scss';
+import '../styles/NewOrders.scss';
 
 
 function NewOrders({onClick}) {
@@ -19,6 +20,7 @@ function NewOrders({onClick}) {
   return (
     <>
       <Header />
+      <h1>New orders</h1>
      
       <section>
       {

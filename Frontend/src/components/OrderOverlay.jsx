@@ -22,21 +22,30 @@ export function OrderOverlay({ close, product }) {
         exit="exit"
       >
 
+        
+
         <section className="order-overlay-container">
+        <button className="close_btn" onClick={close}></button>
           <h1>Order nr: {product.id}</h1>
-          <section className="order-info">
-            <h3>{product.id} x {product.title}</h3>
-          </section>
+            <section className="order-info">
+              <h3>{product.id} x {product.title}</h3>
+            </section>
 
           <section className="order-comment">
             <h3>Comment:</h3>
             <p>- comment from customer -</p>
           </section>
-      
-          <button onClick={close}>YES</button>
+
+          <section className="button-container">
+            <button className="yes_btn" onClick={close}>YES</button>
+          </section>
+
         </section>
+
+        
       </motion.div>
     </AnimatePresence>
   );
 }
+
 

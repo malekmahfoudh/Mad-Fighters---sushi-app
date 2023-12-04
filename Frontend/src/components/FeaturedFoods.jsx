@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import FoodCard  from "../components/FoodCard";
 
 
-function FeaturedFoods({onClick}) {
+function FeaturedFoods({onClick, selectedCategory}) {
   const [products,setProducts] = useState([]); 
 
 
@@ -13,14 +13,15 @@ function FeaturedFoods({onClick}) {
       .then(data => setProducts(data)); 
   },[]);
 
+  const filteredProducts = selectedCategory ? products.filter(product => product.category === selectedCategory) 
+  : products.filter(product => product.featured);
 
   return (
     <section className='FoodCard_wrapper' >
 
-      {
-        products && products.map((product,index) => (
-            
-           product.featured ?  <FoodCard key={index} product={product} clickEvent={onClick}/> : '' 
+{
+        filteredProducts && filteredProducts.map((product,index) => (
+           <FoodCard key={index} product={product} clickEvent={onClick}/> 
         ))
       }
    

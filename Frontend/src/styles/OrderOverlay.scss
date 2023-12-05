@@ -25,8 +25,8 @@
   flex-direction: column;
 
   .close_btn {
-    margin-right: 0; // Push close_btn to the right
-    align-self: flex-end; // Align close_btn to the end of the container
+    margin-right: 0; 
+    align-self: flex-end; 
   }
 
   h1 {
@@ -48,16 +48,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem; // Adjust the margin-top as needed
+  margin-top: 1rem; 
 }
 
 .confirm_btn {
   background-color: $green-button-color;
-  width: 7.5rem;
+  width: 8.5rem;
   height: 4rem;
-  border-radius: 1.875rem;
+  border-radius: 1.8rem;
   border: none;
   font-size: $font-size-lg;
   color: white;
-  margin-top: 6rem; // Add margin-top for the YES button
+  margin-top: 6rem; 
 }

@@ -1,6 +1,10 @@
 import React from "react";
+import { useState } from "react";
 
-function SearchBar() {
+function SearchBar({setSelectedCategory, selectedCategory}) {
+
+
+
     return ( 
         <section className="SearchBarContainer">
             <div className="SearchBar">
@@ -10,24 +14,34 @@ function SearchBar() {
                 </div>
             </div>
                 <ul>
-                    <li>
-                        <img src="../assets/icons/Zongzi.svg/" alt="" />
+                    <li onClick={() => setSelectedCategory(selectedCategory === 'starters' ? '' : 'starters')}> 
+                        <img
+                            className={selectedCategory === 'starters' ? 'active' : ''} 
+                            src="../assets/icons/Zongzi.svg/" alt="" />
                         <a>starters</a>
                     </li>
-                    <li className="mains">
-                        <img src="../assets/icons/Sushi.svg/" alt="" />
-                        <a>mains</a>
+                    <li onClick={() => setSelectedCategory(selectedCategory === 'main' ? '' : 'main')}>
+                        <img 
+                            className={selectedCategory === 'main' ? 'active' : ''}
+                            src="../assets/icons/Sushi.svg/" alt="" />
+                        <a>main</a>
                     </li>
-                    <li>
-                    <img src="../assets/icons/Baozi.svg/" alt="" />
+                    <li onClick={() => setSelectedCategory(selectedCategory === 'sides' ? '' : 'sides')}>
+                    <img 
+                        className={selectedCategory === 'sides' ? 'active' : ''}
+                        src="../assets/icons/Baozi.svg/" alt="" />
                         <a>sides</a>
                     </li>
-                    <li>
-                    <img src="../assets/icons/Pudding.svg/" alt="" />
-                        <a>desserts</a>
+                    <li onClick={() => setSelectedCategory(selectedCategory === 'dessert' ? '' : 'dessert')}>
+                    <img 
+                        className={selectedCategory === 'dessert' ? 'active' : ''}
+                        src="../assets/icons/Pudding.svg/" alt="" />
+                        <a>dessert</a>
                     </li>
-                    <li>
-                    <img src="../assets/icons/Drink.svg/" alt="" />
+                    <li onClick={() => setSelectedCategory(selectedCategory === 'drinks' ? '' : 'drinks')}>
+                    <img 
+                        className={selectedCategory === 'drinks' ? 'active' : ''}
+                        src="../assets/icons/Drink.svg/" alt="" />
                         <a>drinks</a>
                     </li>
                 </ul>

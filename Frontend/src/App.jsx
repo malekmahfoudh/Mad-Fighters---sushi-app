@@ -32,12 +32,12 @@ function App() {
     
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/profile" element={<MyProfile />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/new-orders" element={<NewOrders />} />
           <Route path="/preparing-orders" element={<PreparingOrders />} />
           <Route path="/ready-orders" element={<ReadyOrders />} />

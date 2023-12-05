@@ -7,7 +7,7 @@ function NavBar({ home, menu, cart}) {
             <NavLink to="/menu">
                 <div style={menu}></div>
             </NavLink>
-            <NavLink to="/">
+            <NavLink to="/home">
                 <div style={home}></div>
             </NavLink>
             <NavLink to="/cart">

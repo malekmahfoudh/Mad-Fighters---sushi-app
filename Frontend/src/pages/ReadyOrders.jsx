@@ -11,15 +11,15 @@ function ReadyOrders() {
     };
     
     return ( 
-        <section className='orders-container'>
+        <>
             <Header />
-            <h1>Ready for pick-up</h1>
+            <h2>Ready for pick-up</h2>
             
             <WorkersNavBar
                 menu={{opacity: '1'}} 
                 menuOpen={menuOpen} 
                 onMenuClick={handleMenuClick}/>
-        </section>
+        </>
     );
 }
 

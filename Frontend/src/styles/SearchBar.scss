@@ -1,5 +1,5 @@
 .SearchBarContainer {
-  
+  margin: 3rem 0;
 
   ul {
     display: flex;
@@ -12,6 +12,18 @@
     margin-bottom: 2rem;
     padding: 0;
 
+    // div {
+    //   display: flex;
+    // }
+
+    // .TopThree_filter {
+    //   gap: 1.5rem;
+    // }
+    // .BottomTwo_filter {
+    //   gap: 1.5rem;
+    // }
+    
+
     li {
       display: flex;
       flex-direction: column;
@@ -20,14 +32,15 @@
       gap: .5rem;
       a {
         text-transform: uppercase;
+        margin-top: 1rem;
         font-size: .8rem;
       }
 
 
       img {
         padding: .5rem;
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
         background-color: $font-color;
         border-radius: 50%;
         gap: 1.5rem;

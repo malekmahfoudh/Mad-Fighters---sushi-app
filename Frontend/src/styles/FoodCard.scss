@@ -26,6 +26,13 @@ a:-webkit-any-link {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .FoodCard-vegetarian {

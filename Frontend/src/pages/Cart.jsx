@@ -11,7 +11,6 @@ function Cart() {
   const [products,setProducts] = useState([]);
   const cart = useSelector(state => state.cart.cart);
   const [comment,setComment] = useState('');
-  const [response , setResponse] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -59,8 +58,7 @@ function Cart() {
       },
       body: JSON.stringify(order),
     });
-    setResponse(await res.json());
-
+    console.log(await res.json());
     dispatch(clearCart());
     navigate('/home');
   }

@@ -10,7 +10,7 @@ import {  useSelector} from "react-redux";
 
 function Menu({onClick}) {
  const [products,setProducts] = useState([]);
-  const stateProducts = useSelector(state => state.products.products); 
+ const stateProducts = useSelector(state => state.products.products); 
 
   useEffect(()=> {
     setProducts(stateProducts);

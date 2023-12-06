@@ -25,15 +25,15 @@
   flex-direction: column;
 
   .close_btn {
-    margin-right: 0; // Push close_btn to the right
-    align-self: flex-end; // Align close_btn to the end of the container
+    margin-right: 0; 
+    align-self: flex-end; 
   }
 
-  h1 {
-    font-size: $font-size-lg;
+  h2 {
     color: $sushi-red-color;
     text-align: center;
     margin-top: 5rem;
+    margin-bottom: 3rem;
   }
 
   .order-comment {
@@ -48,16 +48,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem; // Adjust the margin-top as needed
+  margin-top: 1rem; 
 }
 
-.yes_btn {
+.confirm_btn {
   background-color: $green-button-color;
-  width: 6.5rem;
-  height: 3rem;
-  border-radius: 1.875rem;
+  width: 8.5rem;
+  height: 4rem;
+  border-radius: 1.8rem;
   border: none;
   font-size: $font-size-lg;
   color: white;
-  margin-top: 6rem; // Add margin-top for the YES button
+  margin-top: 6rem; 
 }

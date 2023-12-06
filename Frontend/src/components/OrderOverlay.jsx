@@ -4,15 +4,18 @@ import "swiper/scss";
 import '../styles/OrderOverlay.scss';
 import { useDispatch } from "react-redux";
 import { addProductToCart } from "../redux/slices/orders";
+
+
 export function OrderOverlay({ close, product }) {
   const dispatch = useDispatch();
+
   const overlayVariants = {
     hidden: { scale: 0 },
     visible: { scale: 1 },
     exit: { scale: 0 },
   };
 
-  function addProduct() {
+  function moveOrder() {
     dispatch(addProductToCart({ product }));
   }
 
@@ -27,7 +30,7 @@ export function OrderOverlay({ close, product }) {
       >
         <section className="order-overlay-container">
           <button className="close_btn" onClick={close}></button>
-          <h1>Order nr: {product.id}</h1>
+          <h2>Order nr: {product.id}</h2>
           <section className="order-info">
             <h3>{product.id} x {product.title}</h3>
           </section>
@@ -39,7 +42,7 @@ export function OrderOverlay({ close, product }) {
 
           <section className="button-container">
             <button className="confirm_btn" onClick={() => {
-              addProduct();
+              moveOrder();
               close();
             }}>CONFIRM</button>
           </section>

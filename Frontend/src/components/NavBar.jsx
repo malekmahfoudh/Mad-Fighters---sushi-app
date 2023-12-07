@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
      return (
         <footer className="nav-container">
-            <section className="icon-container" >
             <NavLink to="/menu">
                 <section className="menu">
                     <img src="/public/assets/icons/menu.png" alt=""  />
@@ -19,7 +18,6 @@ function NavBar() {
                     <img src="/public/assets/icons/cart.png" alt="" />
                 </section>
             </NavLink>
-            </section>
         </footer>
      );
 }

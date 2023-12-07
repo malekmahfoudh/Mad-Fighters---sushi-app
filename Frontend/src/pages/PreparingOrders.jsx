@@ -15,11 +15,6 @@ function PreparingOrders() {
         setProducts(cart);
       },[cart]);
 
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleMenuClick = () => {
-    setMenuOpen(!menuOpen);
-  };
 
   return (
     <>
@@ -37,11 +32,7 @@ function PreparingOrders() {
         <p className='orders-empty'>No orders are currently being prepared</p>
       )}
 
-      <WorkersNavBar
-        menu={{ opacity: '1' }}
-        menuOpen={menuOpen}
-        onMenuClick={handleMenuClick}
-      />
+      <WorkersNavBar/>
     </>
   );
 }

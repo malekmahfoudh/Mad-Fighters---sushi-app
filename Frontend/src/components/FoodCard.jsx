@@ -1,8 +1,8 @@
 import React from "react";
-import { useEffect, useState } from "react";  
+import { useState } from "react";  
 import { Overlay } from '../components/ChosenDish';
 
-function FoodCard({ menu, product= {}}) {
+function FoodCard({ product= {}}) {
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
     const openOverlay = () => {

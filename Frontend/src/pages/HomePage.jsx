@@ -17,7 +17,7 @@ function HomePage() {
           <h3>{selectedCategory ? selectedCategory.toUpperCase() : "TOP CHOICES"}</h3>
         </article>
         <FeaturedFoods selectedCategory={selectedCategory} />
-        <NavBar home={{opacity: '1'}} />
+        <NavBar />
     </main>
   );
 }

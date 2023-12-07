@@ -90,7 +90,7 @@ function Cart() {
       ) : (
         <EmptyCart />
       )}
-      <NavBar cart={{ opacity: '1' }} />
+      <NavBar />
     </section>
   );
 }

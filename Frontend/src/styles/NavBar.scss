@@ -10,7 +10,7 @@
     margin-bottom: -.2rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     section {
         height: 100%;
         width: 4rem;
@@ -18,7 +18,7 @@
         align-items: center;
         justify-content: center;
         img {
-            height: 1.8rem;
+            height: 45%;
         }
     }
 

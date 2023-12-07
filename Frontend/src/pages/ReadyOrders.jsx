@@ -9,7 +9,6 @@ function ReadyOrders() {
         <>
             <Header />
             <h2>Ready for pick-up</h2>
-            
             <WorkersNavBar />
         </>
     );

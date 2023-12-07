@@ -29,3 +29,23 @@ body {
     }
   }
 }
+@media (min-width: 1024px) {
+  .HomePage {
+    article {
+      h3 {
+        margin: 0 2rem;
+      }
+    }
+  }
+
+  .FoodCard {
+    width: 300px;
+    margin: 1rem;
+  }
+
+  .NavBar {
+    padding: 1rem 2rem;
+  }
+
+  // Add more styles for other components as needed
+}

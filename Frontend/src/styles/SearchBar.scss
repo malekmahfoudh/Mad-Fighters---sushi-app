@@ -102,3 +102,47 @@
     transform: translateY(-50%);
   }
 }
+
+@media (min-width: 1024px) {
+  .SearchBarContainer {
+    margin: 3rem 0;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      gap: 1rem;
+      margin-top: 1.3rem;
+      margin-bottom: 2rem;
+      padding: 0;
+
+      // div {
+      //   display: flex;
+      // }
+
+      // .TopThree_filter {
+      //   gap: 1.5rem;
+      // }
+      // .BottomTwo_filter {
+      //   gap: 1.5rem;
+      // }
+      
+
+      li {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: .5rem;
+        margin-right: 2rem;
+        a {
+          text-transform: uppercase;
+          margin-top: 1rem;
+          font-size: .8rem;
+        }
+      }
+    }
+  }
+}

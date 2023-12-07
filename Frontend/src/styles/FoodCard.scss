@@ -38,3 +38,35 @@ a:-webkit-any-link {
 .FoodCard-vegetarian {
      @include veggie-card-background-color;
 }
+
+@media (min-width: 1024px) {
+    .FoodCard {
+        width: 12rem;
+        height: 16rem;
+        margin: 1rem;
+        img {
+            height: 10rem;
+            padding-left: 2rem;
+            padding-top: .5rem;
+            margin-bottom: -.5rem;
+        }
+        p {
+            font-family: $font-family-base;
+            margin-top: .6rem;
+            margin-left: .6rem;
+            font-size: 14px;
+        }
+    }
+    .FoodCard_wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        flex-direction: row;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}

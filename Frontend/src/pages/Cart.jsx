@@ -2,19 +2,66 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import EmptyCart from '../components/EmptyCart';
 import NavBar from '../components/NavBar';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import HorizontalFoodCard from '../components/HorizontalFoodCard';
+import { clearCart } from '../redux/slices/cart';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function Cart() {
   const [products,setProducts] = useState([]);
   const cart = useSelector(state => state.cart.cart);
-  
-  const onClick = (product) => {};
+  const [comment,setComment] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
+
+
+  const onClick = () => {};
   useEffect(()=> {
+    setIsLoading(true);
     setProducts(cart);
+    setIsLoading(false);
   },[cart]);
 
-  console.log('cart side: ', products);
+//   {
+//     "comment":"kommentar till kocken",
+//     "products": [
+//         {
+//             "id":"1"
+//         },
+//         {
+//             "id":"2"
+//         }    
+//     ]
+// }
+  const makeOrder = async (e) => {
+    e.preventDefault();
+    const productArray = products.map((product) => {
+      const productIds = [];
+      for (let i = 0; i < product.quantity; i++) {
+        productIds.push({ id: product.product.id });
+      }
+
+      return productIds;
+    })
+    const order = {
+      comment: comment,
+      products: productArray.flat(), // flat() makes an array of arrays into one array
+    }
+    localStorage.setItem("cart", JSON.stringify(order));
+    const res = await fetch("https://sushi-vibes.onrender.com/api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(order),
+    });
+    console.log(await res.json());
+    dispatch(clearCart());
+    navigate('/home');
+  }
 
   const calculateTotal = () => {
     if (!products || products.length === 0) {
@@ -35,9 +82,9 @@ function Cart() {
             </React.Fragment>
           ))}
           <section className='OrderInfo'>
-            <input type="text" placeholder='Add a comment to the chef...' />
+            <input type="text" placeholder='Add a comment to the chef...' onChange={(e)=> setComment(e.target.value)} />
             <h2>Total: {calculateTotal()} sek</h2>
-            <button>Place order</button>
+            <button onClick={makeOrder}>Place order</button>
           </section>
         </>
       ) : (

@@ -1,49 +1,26 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function WorkersNavBar({ menu, cart, menuOpen, onMenuClick }) {
-    const location = useLocation();
+function WorkersNavBar() {
+
      return (
         <footer className="nav-container">
-          <section className="bubble-container">
-            <NavLink to="/new-orders">
-                <div style={menu}></div>
-            </NavLink>
-            <NavLink to="/preparing-orders">
-                <div style={menu}></div>
-            </NavLink>
-            <NavLink to="/ready-orders">
-                <div style={cart}></div>
-            </NavLink>
-            </section>
-            {location.pathname === "/new-orders" ? (
-            <>
                 <section className="icon-container" >
-                    <section onClick={onMenuClick}>
-                        <img src="/public/assets/icons/new.svg" alt=""  />
+                <NavLink to="/new-orders">
+                    <section className="new">
+                        <img src="/public/assets/icons/new.png" alt=""  />
                     </section>
-                    <section onClick={onMenuClick}>
-                        <img src="/public/assets/icons/preparing.svg" alt="" />
+                </NavLink>
+                <NavLink to="/preparing-orders">
+                    <section className="prepare">
+                        <img src="/public/assets/icons/prepare.png" alt="" />
                     </section>
-                    <section onClick={onMenuClick}>
-                        <img src="/public/assets/icons/ready.svg" alt="" />
+                </NavLink>
+                <NavLink to="/ready-orders">
+                    <section className="ready">
+                        <img src="/public/assets/icons/ready.png" alt="" />
                     </section>
+                </NavLink>
                 </section>
-            </>
-            ) : (
-            <>
-                <section className="icon-container">
-                    <section  onClick={onMenuClick}>
-                        <img src="/public/assets/icons/new.svg" alt="" />
-                    </section>
-                    <section  onClick={onMenuClick}>
-                        <img src="/public/assets/icons/preparing.svg" alt="" />
-                    </section>
-                    <section  onClick={onMenuClick}>
-                        <img src="/public/assets/icons/ready.svg" alt="" />
-                    </section>
-                </section>
-            </>
-            )}
         </footer>
      );
 }

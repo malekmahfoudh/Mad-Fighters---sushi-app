@@ -1,29 +1,24 @@
 import { NavLink } from "react-router-dom";
 
-function NavBar({ home, menu, cart}) {
+function NavBar() {
      return (
         <footer className="nav-container">
-          <section className="bubble-container">
-            <NavLink to="/menu">
-                <div style={menu}></div>
-            </NavLink>
-            <NavLink to="/home">
-                <div style={home}></div>
-            </NavLink>
-            <NavLink to="/cart">
-                <div style={cart}></div>
-            </NavLink>
-            </section>
             <section className="icon-container" >
-                <section>
+            <NavLink to="/menu">
+                <section className="menu">
                     <img src="/public/assets/icons/menu.png" alt=""  />
                 </section>
-                <section>
-                    <img src="/public/assets/icons/home2.png" alt="" />
+            </NavLink>
+            <NavLink to="/home">
+                <section className="home">
+                    <img src="/public/assets/icons/home.png" alt="" />
                 </section>
-                <section>
+            </NavLink>
+            <NavLink to="/cart">
+                <section className="cart">
                     <img src="/public/assets/icons/cart.png" alt="" />
                 </section>
+            </NavLink>
             </section>
         </footer>
      );

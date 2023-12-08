@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "swiper/scss";
 import '../styles/OrderOverlay.scss';
@@ -8,6 +8,8 @@ import { addProductToCart } from "../redux/slices/orders";
 
 export function OrderOverlay({ close, product }) {
   const dispatch = useDispatch();
+  const [order, setOrder] = useState({});
+  const [products, setProducts] = useState([]);
 
   const overlayVariants = {
     hidden: { scale: 0 },
@@ -15,9 +17,29 @@ export function OrderOverlay({ close, product }) {
     exit: { scale: 0 },
   };
 
-  function moveOrder() {
-    dispatch(addProductToCart({ product }));
+  const verifyOrder = async () => {
+    const verifiedOrder = await fetch(`https://sushi-vibes.onrender.com/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
+      method: "PUT"
+    });
+    console.log(await verifiedOrder.json());
+
+  };
+
+
+  const getOrder = async () => {
+    const response = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${product.orderNumber}`);
+    const data = await response.json();
+    setOrder(data.order);
+    setProducts(data.order.products);
+    console.log(data);
+  } 
+
+  useEffect(() => {
+    getOrder();
   }
+  ,[]);
+
+  
 
   return (
     <AnimatePresence>
@@ -30,19 +52,22 @@ export function OrderOverlay({ close, product }) {
       >
         <section className="order-overlay-container">
           <button className="close_btn" onClick={close}></button>
-          <h2>Order nr: {product.id}</h2>
+          <h2>Order nr: {product.orderNumber}</h2>
           <section className="order-info">
-            <h3>{product.id} x {product.title}</h3>
+            {products && products.map((item, index) => (
+              <h3 key={index}>{item.title}</h3>
+            ))
+              }
           </section>
 
           <section className="order-comment">
-            <h3>Comment:</h3>
+            <h3>Comment: {order.comment}</h3>
             <p>- comment from customer -</p>
           </section>
 
           <section className="button-container">
             <button className="confirm_btn" onClick={() => {
-              moveOrder();
+              verifyOrder();
               close();
             }}>CONFIRM</button>
           </section>

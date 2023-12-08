@@ -18,7 +18,7 @@ function WorkerFoodCard({ product= {}}) {
     <>
     <article className="worker-foodcard-wrapper" onClick={openOverlay}>
       <section className="info">
-        <p>Order nr:<br></br> {product.id}</p>
+        <p>Order nr:<br></br> {product.orderNumber}</p>
       </section>
       <img src="../assets/icons/takeaway.svg/" alt="take away" />
     </article>

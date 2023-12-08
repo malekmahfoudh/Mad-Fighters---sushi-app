@@ -9,11 +9,16 @@ import '../styles/NewOrders.scss';
 
 function NewOrders({ onClick }) {
   const [products, setProducts] = useState([]);
-  const stateProducts = useSelector(state => state.products.products);
+  const getNewOrders = async () => {
+    const response = await fetch("https://sushi-vibes.onrender.com/api/worker/orders?user=worker&pass=0000");
+    const data = await response.json();
+    setProducts(data.orders);
+  };
+  console.log(products);
 
   useEffect(() => {
-    setProducts(stateProducts);
-  }, [stateProducts]);
+    getNewOrders();
+  },[]);
 
   return (
     <>

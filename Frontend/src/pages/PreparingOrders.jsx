@@ -1,38 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
+import React from "react";
+import WorkerFoodCard from "../components/WorkerFoodCard";
+import Header from "../components/Header";
+import WorkersNavBar from "../components/WorkersNavBar";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import '../styles/WorkerFoodCard.scss';
 import '../styles/NewOrders.scss';
-import WorkersNavBar from '../components/WorkersNavBar';
-import { useSelector } from 'react-redux';
-import WorkerFoodCard from '../components/WorkerFoodCard';
 
-function PreparingOrders() {
-    const [products,setProducts] = useState([]);
-    const cart = useSelector(state => state.cart.cart);
-    
-    const onClick = (product) => {};
+function PreparingOrders({ onClick }) {
+  const [products, setProducts] = useState([]);
+  const getNewOrders = async () => {
+    const response = await fetch("https://sushi-vibes.onrender.com/api/worker/orders/verified?user=worker&pass=0000");
+    const data = await response.json();
+    setProducts(data.orders);
+  };
+  console.log(products);
 
-    useEffect(()=> {
-        setProducts(cart);
-      },[cart]);
-
+  useEffect(() => {
+    getNewOrders();
+  },[]);
 
   return (
     <>
       <Header />
       <h2>Preparing orders</h2>
-      {products && products.length > 0 ? (
-        <>
-      {products.map((product, index) => (
-            <React.Fragment key={index}>
-              <WorkerFoodCard product={product.product} clickEvent={onClick} />
-            </React.Fragment>
-          ))}
-        </>
-      ) : (
-        <p className='orders-empty'>No orders are currently being prepared</p>
-      )}
 
-      <WorkersNavBar/>
+      <section>
+        {products.length > 0 ? (
+          products.map((product, index) => (
+            product ? <WorkerFoodCard key={index} product={product} clickEvent={onClick} /> : ''
+          ))
+        ) : (
+          <p className="orders-empty">No orders are currently being prepared</p>
+        )}
+      </section>
+
+      <WorkersNavBar />
     </>
   );
 }

@@ -40,3 +40,5 @@ function Menu({ onClick }) {
     </>
   );
 }
+
+export default Menu;

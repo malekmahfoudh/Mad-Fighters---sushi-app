@@ -17,15 +17,7 @@ function Menu({ onClick }) {
   : products;
 
 
-<<<<<<< HEAD
-function Menu({onClick}) {
- const [products,setProducts] = useState([]);
- const stateProducts = useSelector(state => state.products.products); 
-
-  useEffect(()=> {
-=======
   useEffect(() => {
->>>>>>> filter-menu-feature
     setProducts(stateProducts);
   }, [stateProducts]);
 
@@ -44,13 +36,7 @@ function Menu({onClick}) {
             )
           )}
       </section>
-<<<<<<< HEAD
-      <NavBar/>
-=======
       <NavBar menu={{ opacity: "1" }} />
->>>>>>> filter-menu-feature
     </>
   );
 }
-
-export default Menu;

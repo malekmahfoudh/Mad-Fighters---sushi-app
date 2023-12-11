@@ -31,15 +31,12 @@ export function OrderOverlay({ close, product }) {
     const data = await response.json();
     setOrder(data.order);
     setProducts(data.order.products);
-    console.log(data);
   } 
 
   useEffect(() => {
     getOrder();
   }
   ,[]);
-
-  
 
   return (
     <AnimatePresence>

@@ -14,7 +14,6 @@ function NewOrders({ onClick }) {
     const data = await response.json();
     setProducts(data.orders);
   };
-  console.log(products);
 
   useEffect(() => {
     getNewOrders();

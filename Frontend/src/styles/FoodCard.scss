@@ -3,6 +3,7 @@
     height: 12.8rem;
     border-radius: 1.25rem;
     margin: 1rem;
+    cursor: pointer;
     @include card-background-color;
     img {
         height: 8rem;

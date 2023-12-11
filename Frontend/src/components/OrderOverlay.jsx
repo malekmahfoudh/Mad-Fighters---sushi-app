@@ -61,8 +61,8 @@ export function OrderOverlay({ close, product }) {
           </section>
 
           <section className="order-comment">
-            <h3>Comment: {order.comment}</h3>
-            <p>- comment from customer -</p>
+            <h3>Comment:</h3>
+            <p>{order.comment}</p>
           </section>
 
           <section className="button-container">

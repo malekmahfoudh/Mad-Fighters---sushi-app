@@ -76,7 +76,7 @@ export function Overlay({ close, product }) {
             </div>
               <div className="ChosenDishAdd">
                 <motion.button 
-                  className="add_btn" 
+                  className="add_btn"  style={{ cursor: "pointer" }}
                   onClick={() => {
                     addProduct();
                     close()}}

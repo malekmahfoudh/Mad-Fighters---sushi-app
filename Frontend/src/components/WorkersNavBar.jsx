@@ -1,7 +1,8 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import AmountIcon from "./AmountIcon";
 
-function WorkersNavBar() {
+function WorkersNavBar( {newOrdersCount} ) {
 
     const location = useLocation();
     const [activeSection, setActiveSection] = useState("");
@@ -21,8 +22,9 @@ function WorkersNavBar() {
      return (
         <footer className="nav-container">
             <NavLink to="/new-orders">
-                <section className={`new ${activeSection === "new" ? "active" : ""}`}>
+                <section className={`new ${activeSection === "new" ? "active" : ""}`} style={{ position: 'relative' }}>
                     <img src={activeSection === "new" ? "/public/assets/icons/active-new.png" : "/public/assets/icons/new.png"} alt="" />
+                    {newOrdersCount > 0 && <AmountIcon amount={newOrdersCount} style={{ position: 'absolute', top: 5, right: -15 }} />}
                 </section>
             </NavLink>
             <NavLink to="/preparing-orders">

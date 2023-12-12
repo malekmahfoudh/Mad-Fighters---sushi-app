@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar';
 import { useDispatch, useSelector } from 'react-redux';
 import HorizontalFoodCard from '../components/HorizontalFoodCard';
 import { clearCart } from '../redux/slices/cart';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
   const [products,setProducts] = useState([]);
@@ -14,7 +14,6 @@ function Cart() {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 
 
 

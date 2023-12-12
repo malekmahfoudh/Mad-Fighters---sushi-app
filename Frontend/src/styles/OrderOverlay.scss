@@ -62,3 +62,29 @@
   margin-top: 6rem; 
   cursor: pointer;
 }
+
+
+.products-table{
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  tr{
+    background-color: $background-color-2;
+        &:nth-child(even){
+      background-color: $background-color-3;
+    }
+    th{
+      padding: .51rem;
+    }
+    td{
+      padding: .3rem;
+      &:first-child{
+        text-align: center;
+        
+      }
+   
+    }
+  }
+}
+

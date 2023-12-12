@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { getProductsWithQuantity } from "../utils/utils.js";
 import "swiper/scss";
 import '../styles/OrderOverlay.scss';
 import { useDispatch } from "react-redux";
-import { addProductToCart } from "../redux/slices/orders";
+
 
 
 export function OrderOverlay({ close, product }) {
-  const dispatch = useDispatch();
   const [order, setOrder] = useState({});
   const [products, setProducts] = useState([]);
 
@@ -21,8 +21,9 @@ export function OrderOverlay({ close, product }) {
     const verifiedOrder = await fetch(`https://sushi-vibes.onrender.com/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
       method: "PUT"
     });
+    getOrder();
     console.log(await verifiedOrder.json());
-
+    window.location.reload();
   };
 
 
@@ -30,11 +31,15 @@ export function OrderOverlay({ close, product }) {
     const response = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${product.orderNumber}`);
     const data = await response.json();
     setOrder(data.order);
-    setProducts(data.order.products);
-  } 
 
+    //getProductsWithQuantity(data.order.products); is a function that converts the array of products into an array of objects with the product and the quantity
+    setProducts(await getProductsWithQuantity(data.order.products));
+  } 
+  
+ 
   useEffect(() => {
     getOrder();
+    console.log("order", order);
   }
   ,[]);
 
@@ -51,10 +56,26 @@ export function OrderOverlay({ close, product }) {
           <button className="close_btn" onClick={close}></button>
           <h2>Order nr: {product.orderNumber}</h2>
           <section className="order-info">
-            {products && products.map((item, index) => (
-              <h3 key={index}>{item.title}</h3>
-            ))
-              }
+            <table className="products-table">
+              <thead>
+              <tr>
+                <th>Qt</th>
+                <th>Product</th>
+              </tr>
+              </thead>
+             
+              <tbody>
+                {products && products.map((item, index) => (
+
+                  <tr key={index}>
+                    <td>{item.quantity}</td>
+                    <td>{item.title}</td>
+                  </tr>
+                ))
+                }
+              </tbody>
+
+            </table>
           </section>
 
           <section className="order-comment">
@@ -62,12 +83,22 @@ export function OrderOverlay({ close, product }) {
             <p>{order.comment}</p>
           </section>
 
+          {order && order.status === "done" ? (<p>The order is ready..</p>) : (
           <section className="button-container">
+            {order && order.status === 'pending' ? (
             <button className="confirm_btn" onClick={() => {
               verifyOrder();
               close();
             }}>CONFIRM</button>
+            ) : (
+            <button className="confirm_btn" onClick={() => {
+              verifyOrder();
+              close();
+            }}>Done</button>
+            )}
           </section>
+          
+          )}
         </section>
       </motion.div>
     </AnimatePresence>

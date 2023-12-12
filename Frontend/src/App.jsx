@@ -16,6 +16,7 @@ import NewOrders from './pages/NewOrders.jsx'
 import PreparingOrders from './pages/PreparingOrders.jsx'
 import ReadyOrders from './pages/ReadyOrders.jsx'
 
+
 function App() {
   const dispatch = useDispatch();
   //fetch from the remote server and add the data to the redux store

@@ -13,3 +13,13 @@
     transform: translateX(10px);
   }
 }
+
+@media (min-width: 1024px) {
+  .EmptyCartContainer {
+    margin-top: 15rem;
+    img {
+      width: 30rem;
+      height: 20rem;
+    }
+  }
+}

@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0.2rem;
-    // position: sticky;
+    margin-bottom: 1rem;
     top: 0;
     background-color: $background-color;
     padding: .5rem;
@@ -34,5 +34,23 @@
 
     p {
         font-size: $font-size-sm;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .HeaderContainer {
+        position: fixed;
+        z-index: 100;
+        width: 100vw;
+        margin: 0;
+    }
+
+    .Profile {
+        margin-right: 3rem;
+    }
+
+    .Logo {
+        margin-left: 2rem;
     }
 }

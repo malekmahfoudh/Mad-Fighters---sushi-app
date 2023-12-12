@@ -114,5 +114,55 @@
     transform: translateY(-40%);
     z-index: 500;
     cursor: pointer;
+
+}
+
+@media (min-width: 1024px) {
+  .ChosenDishContainer {
+    width: 30rem;
+    height: 35rem;
+    margin-top: 15rem;
+  }
+
+  .ChosenDishContainer-vegetarian {
+    width: 30rem;
+    height: 35rem;
+    margin-top: 15rem;
+  }
+
+  .ChosenDishInfo {
+    margin-top: 10rem;
+  }
+
+  .ChosenDishInfo_container {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .ChosenDishDescription {
+    margin-top: 1rem;
+    gap: 3rem;
+  }
+
+
+
+  .QuantitySelector {
+    margin-top: 1rem;
+  }
+
+  .ChosenDishAdd {
+    button {
+      top: 30rem;
+      left: 13rem;
+    }
+  }
+
+  .close_btn {
+    top: 12rem !important;
+  }
+
+
 }
 

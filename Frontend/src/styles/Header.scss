@@ -16,25 +16,26 @@
     width: 11rem;
     height: 11rem;
     margin-left: -0.875rem;
+    cursor: pointer;
 }
 
 .Profile {
     display: flex;
     align-items: center;
+    margin-left: 3rem;
 
     img {
-        width: 4rem;
-        height: 4rem;
+        width: 4.5rem;
+        height: 4.2rem;
+        border-radius: 50%;
     }
 }
 
 .ProfileInfo {
-    margin-right: 0.5rem;
-    line-height: 0.4rem;
+    line-height: 1.4rem;
+    width: min-content;
+    padding-right: 0.5rem;
 
-    p {
-        font-size: $font-size-sm;
-    }
 }
 
 

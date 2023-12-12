@@ -1,11 +1,15 @@
 import React from "react";
 import '../styles/Header.scss'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Header() {
+    const navigation = useNavigate();
+    const handleClick = () => {
+        navigation('/');
+    }
     return ( 
         <header className="HeaderContainer">
-            <img className="Logo" src="./public/assets/img/header-logo.svg" alt="sushi vibes logo" />
+            <img className="Logo" src="./public/assets/img/header-logo.svg" alt="sushi vibes logo" onClick={handleClick} />
 
             <section className="Profile">
                 <section className="ProfileInfo">

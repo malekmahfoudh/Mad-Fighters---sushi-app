@@ -40,7 +40,7 @@ function Cart() {
       comment: comment,
       products: productArray.flat(), // flat() makes an array of arrays into one array
     };
-    localStorage.setItem("cart", JSON.stringify(order));
+    
     const res = await fetch("https://sushi-vibes.onrender.com/api/order", {
       method: "POST",
       headers: {
@@ -48,10 +48,10 @@ function Cart() {
       },
       body: JSON.stringify(order),
     });
-    console.log(await res.json());
-    
+    const resData = await res.json();
+    localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
     dispatch(clearCart());
-    const notis = toast("Your order has been sent", {
+    const notis = toast(`Your order #${resData.theOrder.orderNumber} has been sent`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

@@ -3,7 +3,7 @@ import '../styles/WorkerFoodCard.scss';
 import { useState } from "react";  
 import { OrderOverlay } from '../components/OrderOverlay';
 
-function WorkerFoodCard({ product= {}}) {
+function WorkerFoodCard({ product= {}, color}) {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   
   const openOverlay = () => {
@@ -16,7 +16,7 @@ function WorkerFoodCard({ product= {}}) {
 
   return (
     <>
-    <article className="worker-foodcard-wrapper" onClick={openOverlay}>
+    <article className={`worker-foodcard-wrapper ${color}`} onClick={openOverlay}>
       <section className="info">
         <p>Order nr:<br></br> {product.orderNumber}</p>
       </section>

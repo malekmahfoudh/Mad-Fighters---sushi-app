@@ -6,10 +6,6 @@ const cartSlice = createSlice({
         cart:[],
     },
     reducers: {
-        // addProductToCart: (state, action) => {
-        //     //push the product to the cart array
-        //     state.cart.push(action.payload); 
-        // },
         addProductToCart: (state, action) => {
             const existingProductIndex = state.cart.findIndex(
                 item => item.product.id === action.payload.product.id
@@ -23,7 +19,6 @@ const cartSlice = createSlice({
         },
         removeProductFromCart: (state, action) => {
             //filter out the product that matches the id of the product to be removed
-        //    state.cart = state.cart.filter(product => product.id !== action.payload.id)
         state.cart = state.cart.filter(product => product.product.id !== action.payload.id)
 
         },

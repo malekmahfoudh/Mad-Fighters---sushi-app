@@ -5,8 +5,6 @@ import "swiper/scss";
 import '../styles/OrderOverlay.scss';
 import { useDispatch } from "react-redux";
 
-
-
 export function OrderOverlay({ close, product }) {
   const [order, setOrder] = useState({});
   const [products, setProducts] = useState([]);
@@ -56,6 +54,7 @@ export function OrderOverlay({ close, product }) {
           <button className="close_btn" onClick={close}></button>
           <h2>Order nr: {product.orderNumber}</h2>
           <section className="order-info">
+            <div className="table-container">
             <table className="products-table">
               <thead>
               <tr>
@@ -74,8 +73,8 @@ export function OrderOverlay({ close, product }) {
                 ))
                 }
               </tbody>
-
             </table>
+            </div>
           </section>
 
           <section className="order-comment">

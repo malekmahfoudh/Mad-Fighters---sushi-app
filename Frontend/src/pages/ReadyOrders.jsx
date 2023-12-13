@@ -29,7 +29,7 @@ function ReadyOrders({ onClick }) {
       <section>
         {products.length > 0 ? (
           products.map((product, index) => (
-            product ? <WorkerFoodCard key={index} product={product} clickEvent={onClick} /> : ''
+            product ? <WorkerFoodCard key={index} product={product} color="ready" clickEvent={onClick} /> : ''
           ))
         ) : (
           <p className="orders-empty">No orders are ready for pickup</p>

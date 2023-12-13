@@ -5,7 +5,7 @@
     width: 23rem;
     border-radius: 1.25rem;
     margin: 2rem 1rem;
-    background: linear-gradient(to right, #626262, #62626200);
+    background: linear-gradient(to right, #820e0e, #62626200);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -20,6 +20,14 @@
         margin: 1.5rem;
         font-size: $font-size-lg;
     }
+}
+
+.worker-foodcard-wrapper.preparing {
+    background: linear-gradient(to right, #d7c136cc, #62626200);
+}
+
+.worker-foodcard-wrapper.ready {
+    background: linear-gradient(to right, #0e821e, #62626200);
 }
 
 .orders-empty {

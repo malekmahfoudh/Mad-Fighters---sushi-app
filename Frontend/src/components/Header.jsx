@@ -20,11 +20,13 @@ function Header() {
 
     const getUserImage = () => {
         if (location.pathname === '/home' || location.pathname === '/cart' || location.pathname === '/menu') {
-            return <img src="./public/assets/icons/customer.jpg" alt="profile image" />
+            return <img src="./public/assets/icons/customer.jpg" alt="profile image" />;
         } else  {
-            return <img src="./public/assets/icons/worker.png" alt="profile image" />
+            return <img src="./public/assets/icons/worker.png" alt="profile image" />;
         }
     }
+
+    const ProfileLink = ['/home', '/cart', '/menu'].includes(location.pathname);
 
     return (
         <header className="HeaderContainer">
@@ -33,9 +35,15 @@ function Header() {
                 <section className="ProfileInfo">
                     {getUserInfo()}
                 </section>
-                <NavLink to='/profile'>
-                    {getUserImage()}
-                </NavLink>
+                <div>
+                    {ProfileLink ? (
+                        <NavLink to='/profile'>
+                            {getUserImage()}
+                        </NavLink>
+                    ) : (
+                        getUserImage()
+                    )}
+                </div>
             </section>
         </header>
     );

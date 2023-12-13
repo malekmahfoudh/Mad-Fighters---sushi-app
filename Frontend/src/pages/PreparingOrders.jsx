@@ -23,6 +23,7 @@ function PreparingOrders({ onClick }) {
   return (
     <>
       <Header />
+      <section className="NewOrdersContainer">
       <h2>Preparing orders</h2>
 
       <section>
@@ -34,7 +35,7 @@ function PreparingOrders({ onClick }) {
           <p className="orders-empty">No orders are currently being prepared</p>
         )}
       </section>
-
+      </section>
       <WorkersNavBar />
     </>
   );

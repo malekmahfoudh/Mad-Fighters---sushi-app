@@ -1,7 +1,24 @@
 @import './variables';
 
+.NewOrdersContainer {
+    padding-bottom: 5rem;
+}
+
 h2 {
     text-align: center;
     font-size: 1.7rem;
     margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+    .NewOrdersContainer {
+        margin-top: 15rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
 }

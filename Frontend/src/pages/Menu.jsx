@@ -26,6 +26,7 @@ function Menu({ onClick }) {
     <>
       <Header />
       <SearchBar setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory} />
+      <section className="menu_wrapper">
       <section className="menu_cards">
         {filteredProducts &&
           filteredProducts.map((product, index) =>
@@ -36,7 +37,7 @@ function Menu({ onClick }) {
             )
           )}
       </section>
-      <NavBar menu={{ opacity: "1" }} />
+      </section>
     </>
   );
 }

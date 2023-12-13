@@ -53,7 +53,7 @@ function HomePage() {
         </article>
         <FeaturedFoods selectedCategory={selectedCategory} />
       </motion.div>
-      <NavBar />
+
     </main>
   );
 }

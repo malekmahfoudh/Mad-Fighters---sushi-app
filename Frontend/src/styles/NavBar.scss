@@ -23,6 +23,7 @@
             height: 45%;
         }
     }
+
 }
 
 @media (min-width: 1024px) {
@@ -30,9 +31,9 @@
         top: 2.5rem;
         width: 60vw;
         transform: translateX(30%);
-        z-index: 100;
         position: fixed;
         border-radius: 50px;
+        z-index: 1000;
 
         section {
             height: 5rem;

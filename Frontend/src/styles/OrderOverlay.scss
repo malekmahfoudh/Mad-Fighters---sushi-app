@@ -37,10 +37,13 @@
   }
 
   .order-comment {
+    h3 {
+      line-height: 0;
+    }
     display: flex;
     flex-direction: column;
     align-items: end;
-    line-height: 0;
+    line-height: 1.5;
   }
 }
 

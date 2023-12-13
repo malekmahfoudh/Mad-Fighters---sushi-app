@@ -27,16 +27,7 @@ function Cart() {
     setIsLoading(false);
   }, [cart]);
 
-  const notis = toast("Your order has been sent", {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-  });
+
 
   const makeOrder = async (e) => {
     e.preventDefault();
@@ -62,6 +53,16 @@ function Cart() {
     });
     console.log(await res.json());
     dispatch(clearCart());
+    const notis = toast("Your order has been sent", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
     navigate("/home");
   };
 

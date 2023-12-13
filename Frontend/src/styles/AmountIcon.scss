@@ -1,0 +1,18 @@
+@import './variables';
+
+.circle {
+    height: 1.6rem;
+    width: 1.6rem;
+    background-color: $button-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: .02rem solid $font-color;
+
+    p {
+        font-size: 1.2rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bolder;
+    }
+}

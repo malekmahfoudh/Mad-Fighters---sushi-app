@@ -3,17 +3,18 @@ import WorkerFoodCard from "../components/WorkerFoodCard";
 import Header from "../components/Header";
 import WorkersNavBar from "../components/WorkersNavBar";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import '../styles/WorkerFoodCard.scss';
 import '../styles/NewOrders.scss';
 
 function NewOrders({ onClick }) {
   const [products, setProducts] = useState([]);
+  const [newOrdersCount, setNewOrdersCount] = useState(0);
 
   const getNewOrders = async () => {
     const response = await fetch("https://sushi-vibes.onrender.com/api/worker/orders?user=worker&pass=0000");
     const data = await response.json();
     setProducts(data.orders);
+    setNewOrdersCount(data.orders.length);
   };
 
   useEffect(() => {
@@ -34,7 +35,7 @@ function NewOrders({ onClick }) {
         )}
       </section>
 
-      <WorkersNavBar />
+      <WorkersNavBar newOrdersCount={newOrdersCount} />
     </>
   );
 }

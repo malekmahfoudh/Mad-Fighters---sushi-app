@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import HeroFood from "../components/HeroFood";
 import SearchBar from "../components/SearchBar";
 import FeaturedFoods from "../components/FeaturedFoods";
+import StatusOverlay from "../components/StatusOverlay";
 import NavBar from "../components/NavBar";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
@@ -14,15 +15,23 @@ function HomePage() {
   const [orderStatus, setOrderStatus] = useState({});
   const [isLocked, setIsLocked] = useState(false);
   const constraintsRef = useRef(null);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   const getOrderStatus = async (orderNumber) => {
       const getStatus = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${orderNumber}`);
       const res = await getStatus.json();
-      setOrderStatus(res);
-      console.log(res);
+      setOrderStatus (await res);
       setIsLocked(res.order.locked);
   }
 
+   function styling(){
+      return { position: "absolute", zIndex: 1000 ,  color: '#fff', border:` 5px solid ${ isLocked ? 'red' : 'green'}`};
+  }
+
+  function handleOverlay(){
+    setIsOverlayOpen(!isOverlayOpen);
+    console.log(isOverlayOpen);
+  }
   useEffect(() => {
     const orderNumber = localStorage.getItem("OrderNumber");
     if(orderNumber) getOrderStatus(JSON.parse(orderNumber));
@@ -30,7 +39,7 @@ function HomePage() {
     
   }, []);
 
-
+  
   return (
     <main className="HomePage">
       <motion.div 
@@ -41,9 +50,10 @@ function HomePage() {
           className="draggable_button"
           drag
           dragConstraints={constraintsRef}
-          style={{ position: "absolute", zIndex: 1000 ,  color: '#fff', border:` 5px solid ${ isLocked ? 'red' : 'green'}`}}
+          style={styling()}
+          onClick={handleOverlay}
         >
-          Order status
+          {isOverlayOpen ? 'Close' : 'Order Status'}
         </motion.button>
 
         <ToastContainer
@@ -72,6 +82,7 @@ function HomePage() {
         <FeaturedFoods selectedCategory={selectedCategory} />
       </motion.div>
       <NavBar />
+      {isOverlayOpen ? <StatusOverlay order={orderStatus} locked={isLocked} close={setIsOverlayOpen} /> : '' } 
     </main>
   );
 }

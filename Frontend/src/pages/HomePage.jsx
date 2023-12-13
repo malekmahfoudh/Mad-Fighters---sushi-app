@@ -11,7 +11,6 @@ import { ToastContainer } from "react-toastify";
 
 function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState("");
-
   const constraintsRef = useRef(null);
 
   return (

@@ -34,17 +34,6 @@ function Cart() {
       for (let i = 0; i < product.quantity; i++) {
         productIds.push({ id: product.product.id });
       }
-      const notis = toast("Your order has been sent", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-
       return productIds;
     });
     const order = {
@@ -60,7 +49,18 @@ function Cart() {
       body: JSON.stringify(order),
     });
     console.log(await res.json());
+    
     dispatch(clearCart());
+    const notis = toast("Your order has been sent", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
     navigate("/home");
   };
 

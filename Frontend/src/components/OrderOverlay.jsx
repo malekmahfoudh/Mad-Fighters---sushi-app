@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getProductsWithQuantity } from "../utils/utils.js";
 import "swiper/scss";
 import '../styles/OrderOverlay.scss';
-import { useDispatch } from "react-redux";
 
 
 
@@ -52,9 +51,11 @@ export function OrderOverlay({ close, product }) {
         animate="visible"
         exit="exit"
       >
+          
         <section className="order-overlay-container">
           <button className="close_btn" onClick={close}></button>
           <h2>Order nr: {product.orderNumber}</h2>
+        
           <section className="order-info">
             <table className="products-table">
               <thead>
@@ -62,11 +63,9 @@ export function OrderOverlay({ close, product }) {
                 <th>Qt</th>
                 <th>Product</th>
               </tr>
-              </thead>
-             
+              </thead> 
               <tbody>
                 {products && products.map((item, index) => (
-
                   <tr key={index}>
                     <td>{item.quantity}</td>
                     <td>{item.title}</td>
@@ -79,10 +78,13 @@ export function OrderOverlay({ close, product }) {
           </section>
 
           <section className="order-comment">
+         
             <h3>Comment:</h3>
             <p>{order.comment}</p>
+            
           </section>
 
+          {/* button to confirm the order */}
           {order && order.status === "done" ? (<p>The order is ready..</p>) : (
           <section className="button-container">
             {order && order.status === 'pending' ? (

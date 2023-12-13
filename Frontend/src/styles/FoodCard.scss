@@ -42,14 +42,14 @@ a:-webkit-any-link {
 
 @media (min-width: 1024px) {
     .FoodCard {
-        width: 12rem;
-        height: 16rem;
+        width: 300px;
+        height: 20rem;
         margin: 1rem;
         img {
-            height: 10rem;
-            padding-left: 2rem;
-            padding-top: .5rem;
-            margin-bottom: -.5rem;
+            height: 14rem;
+            padding-left: 2.3rem;
+            padding-top: 1.5rem;
+            margin-bottom: -.5rem;;
         }
         p {
             font-family: $font-family-base;

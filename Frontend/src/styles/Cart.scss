@@ -37,6 +37,10 @@
 @media (min-width: 1024px) {
     .CartContainer {
         margin-top: 15rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
     }
     
     .OrderInfo {

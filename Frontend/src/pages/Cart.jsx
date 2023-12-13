@@ -27,6 +27,17 @@ function Cart() {
     setIsLoading(false);
   }, [cart]);
 
+  const notis = toast("Your order has been sent", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+
   const makeOrder = async (e) => {
     e.preventDefault();
     const productArray = products.map((product) => {
@@ -34,16 +45,6 @@ function Cart() {
       for (let i = 0; i < product.quantity; i++) {
         productIds.push({ id: product.product.id });
       }
-      const notis = toast("Your order has been sent", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
 
       return productIds;
     });
@@ -97,7 +98,6 @@ function Cart() {
             />
             <h2>Total: {calculateTotal()} sek</h2>
             <button onClick={makeOrder}>Place order</button>
-
           </section>
         </>
       ) : (

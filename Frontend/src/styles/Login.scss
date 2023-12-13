@@ -34,3 +34,32 @@
         margin: 1rem;
     }
 }
+
+@media (min-width: 1024px) {
+    .login-container {
+        background-image: url(./public/assets/img/wallpaper.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        .logo-container {
+            .logo {
+                width: 30rem;
+            }
+        }
+        .welcome-page {
+            h2 {
+                font-size: 45px;
+                text-shadow: 5px 0 5px $background-color ;
+            }
+            h3 {
+                width: 30rem;
+                font-size: 25px;
+                text-shadow: 5px 0 5px $background-color;
+            }
+            button {
+                width: 20rem;
+                height: 4rem;
+                font-size: 20px;
+            }
+        }
+    }
+}

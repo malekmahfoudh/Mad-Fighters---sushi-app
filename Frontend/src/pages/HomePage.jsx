@@ -14,35 +14,49 @@ function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [orderStatus, setOrderStatus] = useState({});
   const [isLocked, setIsLocked] = useState(false);
-  const constraintsRef = useRef(null);
+ 
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const constraintsRef = useRef(null);
   const getOrderStatus = async (orderNumber) => {
+      setIsLoading(true);
       const getStatus = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${orderNumber}`);
       const res = await getStatus.json();
       setOrderStatus (await res);
+      setIsLoading(false);
       setIsLocked(res.order.locked);
   }
 
-   function styling(){
-      return { position: "absolute", zIndex: 1000 ,  color: '#fff', border:` 5px solid ${ isLocked ? 'red' : 'green'}`};
+
+
+   function handleOverlay(){
+    setIsOverlayOpen(!isOverlayOpen);
+
   }
 
-  function handleOverlay(){
-    setIsOverlayOpen(!isOverlayOpen);
-    console.log(isOverlayOpen);
+  function orderStatusColor() {
+    if (orderStatus?.order?.status === 'pending') {
+      return {borderColor: "red"};
+    }
+    if (orderStatus?.order?.status === 'verified') {
+      return {borderColor: "orange"};
+    }
+    if (orderStatus?.order?.status === 'done') {
+      return {borderColor: "green"};
+    }
+
   }
   useEffect(() => {
     const orderNumber = localStorage.getItem("OrderNumber");
     if(orderNumber) getOrderStatus(JSON.parse(orderNumber));
     else console.log("No order number found");
-    
   }, []);
 
   
   return (
     <main className="HomePage">
-      <motion.div 
+      {isLoading ? <p className="loading">Loading..</p> : (
+        <motion.div 
         className="drag-area" 
         ref={constraintsRef}
         >
@@ -50,8 +64,12 @@ function HomePage() {
           className="draggable_button"
           drag
           dragConstraints={constraintsRef}
-          style={styling()}
+          style={orderStatusColor()}
           onClick={handleOverlay}
+          whileHover={{
+            scale: 1.2,
+            transition: {ease:'easeInOut', duration: .2 },
+          }}
         >
           {isOverlayOpen ? 'Close' : 'Order Status'}
         </motion.button>
@@ -81,8 +99,13 @@ function HomePage() {
         </article>
         <FeaturedFoods selectedCategory={selectedCategory} />
       </motion.div>
+
+
+
+      )}
+      
       <NavBar />
-      {isOverlayOpen ? <StatusOverlay order={orderStatus} locked={isLocked} close={setIsOverlayOpen} /> : '' } 
+      {isOverlayOpen ? <StatusOverlay order={orderStatus} orderStatusColor={orderStatusColor} locked={isLocked} /> : '' } 
     </main>
   );
 }

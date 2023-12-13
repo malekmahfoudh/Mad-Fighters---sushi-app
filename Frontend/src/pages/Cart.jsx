@@ -18,7 +18,6 @@ function Cart() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const notify = () => toast("Wow so easy!");
 
   const onClick = () => {};
   useEffect(() => {
@@ -27,7 +26,7 @@ function Cart() {
     setIsLoading(false);
   }, [cart]);
 
-
+  const toastId = 'orderToast';
 
   const makeOrder = async (e) => {
     e.preventDefault();
@@ -39,6 +38,8 @@ function Cart() {
 
       return productIds;
     });
+
+
     const order = {
       comment: comment,
       products: productArray.flat(), // flat() makes an array of arrays into one array
@@ -53,16 +54,11 @@ function Cart() {
     });
     console.log(await res.json());
     dispatch(clearCart());
-    const notis = toast("Your order has been sent", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+
+    if (!toast.isActive(toastId)) {
+      toast('Your order has been placed!', { toastId });
+    }
+
     navigate("/home");
   };
 
@@ -104,7 +100,7 @@ function Cart() {
       ) : (
         <EmptyCart />
       )}
-      <NavBar />
+
     </section>
   );
 }

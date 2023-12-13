@@ -1,5 +1,6 @@
 .SearchBarContainer {
   margin: 3rem 0;
+  animation: slideIn 0.5s forwards;
 
   ul {
     display: flex;
@@ -11,18 +12,6 @@
     margin-top: 1.3rem;
     margin-bottom: 2rem;
     padding: 0;
-
-    // div {
-    //   display: flex;
-    // }
-
-    // .TopThree_filter {
-    //   gap: 1.5rem;
-    // }
-    // .BottomTwo_filter {
-    //   gap: 1.5rem;
-    // }
-    
 
     li {
       display: flex;
@@ -106,7 +95,10 @@
 
 @media (min-width: 1024px) {
   .SearchBarContainer {
-    margin: 3rem 0;
+    transform-origin: right;
+    z-index: 1000;
+    position: relative;
+    margin-top: 10rem;
 
     ul {
       display: flex;
@@ -119,17 +111,6 @@
       margin-bottom: 2rem;
       padding: 0;
 
-      // div {
-      //   display: flex;
-      // }
-
-      // .TopThree_filter {
-      //   gap: 1.5rem;
-      // }
-      // .BottomTwo_filter {
-      //   gap: 1.5rem;
-      // }
-      
 
       li {
         display: flex;
@@ -147,3 +128,4 @@
     }
   }
 }
+

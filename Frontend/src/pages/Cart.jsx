@@ -54,9 +54,12 @@ function Cart() {
     const resData = await res.json();
     localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
     dispatch(clearCart());
-
+    console.log("about to show toast");
     if (!toast.isActive(toastId)) {
+      console.log("showing toast");
       toast('Your order has been placed!', { toastId });
+    } else {
+      console.log("toast already showing");
     }
 
     navigate("/home");

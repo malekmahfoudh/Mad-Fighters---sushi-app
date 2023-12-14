@@ -14,14 +14,6 @@ export function OrderOverlay({ close, product }) {
     exit: { scale: 0 },
   };
 
-  const verifyOrder = async () => {
-    const verifiedOrder = await fetch(`https://sushi-vibes.onrender.com/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
-      method: "PUT"
-    });
-    getOrder();
-    console.log(await verifiedOrder.json());
-    window.location.reload();
-  };
 
 
   const getOrder = async () => {
@@ -32,11 +24,17 @@ export function OrderOverlay({ close, product }) {
     //getProductsWithQuantity(data.order.products); is a function that converts the array of products into an array of objects with the product and the quantity
     setProducts(await getProductsWithQuantity(data.order.products));
   } 
-  
+
+  const verifyOrder = async () => {
+     await fetch(`https://sushi-vibes.onrender.com/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
+      method: "PUT"
+    });
+    window.location.reload();
+  };
+
  
   useEffect(() => {
     getOrder();
-    console.log("order", order);
   }
   ,[]);
 

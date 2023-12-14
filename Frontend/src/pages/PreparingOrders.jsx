@@ -9,32 +9,37 @@ import '../styles/NewOrders.scss';
 
 function PreparingOrders({ onClick }) {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  
   const getNewOrders = async () => {
     const response = await fetch("https://sushi-vibes.onrender.com/api/worker/orders/verified?user=worker&pass=0000");
     const data = await response.json();
-    setProducts(data.orders);
+    setProducts(await data.orders);
   };
-  console.log(products);
 
   useEffect(() => {
+    setIsLoading(true);
     getNewOrders();
+    setIsLoading(false);
   },[]);
 
   return (
     <>
       <Header />
       <section className="NewOrdersContainer">
-      <h2>Preparing orders</h2>
-
-      <section>
-        {products.length > 0 ? (
-          products.map((product, index) => (
-            product ? <WorkerFoodCard key={index} product={product} color="preparing" clickEvent={onClick} /> : ''
-          ))
-        ) : (
-          <p className="orders-empty">No orders are currently being prepared</p>
+        <h2>Preparing orders</h2>
+        {isLoading ? <p className="loading">Loading...</p> : (
+          <section>
+            {products.length > 0 ? (
+              products.map((product, index) => (
+                product ? <WorkerFoodCard key={index} product={product} color="preparing" clickEvent={onClick} /> : ''
+              ))
+            ) : (
+              <p className="orders-empty">No orders are currently being prepared</p>
+            )}
+          </section>
         )}
-      </section>
+
       </section>
       <WorkersNavBar />
     </>

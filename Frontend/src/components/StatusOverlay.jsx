@@ -67,7 +67,7 @@ export   function StatusOverlay({order,locked, orderStatusColor }) {
            initial="hidden"
            exit="exit"
            >
-           <h2>{!locked?'🔓': '🔒'} Your order number is: #{order?.order?.orderNumber} </h2>
+           <h2>{!locked && order?.order?.status === "pending" ?'🔓': '🔒'} Your order number is: #{order?.order?.orderNumber} </h2>
            
            <section className="order-info">
            <table className="products-table">

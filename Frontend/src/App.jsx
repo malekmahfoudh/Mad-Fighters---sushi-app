@@ -11,10 +11,11 @@ import About from "./pages/About.jsx";
 import Login from "./pages/Login.jsx";
 import Menu from "./pages/Menu.jsx";
 import NavBar from "./components/NavBar.jsx";
-
 import NewOrders from "./pages/NewOrders.jsx";
 import PreparingOrders from "./pages/PreparingOrders.jsx";
 import ReadyOrders from "./pages/ReadyOrders.jsx";
+import CartUpdate from "./pages/CartUpdate.jsx";
+
 
 function App() {
   const dispatch = useDispatch();

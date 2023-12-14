@@ -2,21 +2,61 @@ import Header from "../components/Header";
 import HeroFood from "../components/HeroFood";
 import SearchBar from "../components/SearchBar";
 import FeaturedFoods from "../components/FeaturedFoods";
+import StatusOverlay from "../components/StatusOverlay";
 import NavBar from "../components/NavBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 
 import { ToastContainer } from "react-toastify";
+import { getProductsWithQuantity } from "../utils/utils";
 
 function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState("");
-
+  const [orderStatus, setOrderStatus] = useState({});
+  const [isLocked, setIsLocked] = useState(false);
+ 
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const constraintsRef = useRef(null);
+  const getOrderStatus = async (orderNumber) => {
+      setIsLoading(true);
+      const getStatus = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${orderNumber}`);
+      const res = await getStatus.json();
+      setOrderStatus (await res);
+      setIsLoading(false);
+      setIsLocked(res?.order?.locked);
+  }
 
+
+
+    function handleOverlay(){
+    setIsOverlayOpen(!isOverlayOpen);
+  }
+
+  function orderStatusColor() {
+    if (orderStatus?.order?.status === 'pending') {
+      return {borderColor: "red"};
+    }
+    if (orderStatus?.order?.status === 'verified') {
+      return {borderColor: "orange"};
+    }
+    if (orderStatus?.order?.status === 'done') {
+      return {borderColor: "green"};
+    }
+
+  }
+  useEffect(() => {
+    const orderNumber = localStorage.getItem("OrderNumber");
+    if(orderNumber) getOrderStatus(JSON.parse(orderNumber));
+    else return;
+  }, []);
+
+  
   return (
     <main className="HomePage">
-      <motion.div 
+      {isLoading ? <p className="loading">Loading..</p> : (
+        <motion.div 
         className="drag-area" 
         ref={constraintsRef}
         >
@@ -24,8 +64,14 @@ function HomePage() {
           className="draggable_button"
           drag
           dragConstraints={constraintsRef}
-          style={{ position: "absolute", zIndex: 1000 }}
+          style={orderStatusColor()}
+          onClick={handleOverlay}
+          whileHover={{
+            scale: 1.2,
+            transition: {ease:'easeInOut', duration: .2 },
+          }}
         >
+          {isOverlayOpen ? 'Close' : 'Order Status'}
         </motion.button>
 
         <ToastContainer
@@ -54,6 +100,12 @@ function HomePage() {
         <FeaturedFoods selectedCategory={selectedCategory} />
       </motion.div>
 
+
+
+      )}
+      
+      <NavBar />
+      { localStorage.getItem("OrderNumber") && isOverlayOpen ? <StatusOverlay order={orderStatus} orderStatusColor={orderStatusColor} locked={isLocked} /> : '' } 
     </main>
   );
 }

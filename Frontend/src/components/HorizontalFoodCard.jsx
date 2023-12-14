@@ -1,19 +1,33 @@
 import { updateQuantityInCart, removeProductFromCart } from "../redux/slices/cart";
 import { useDispatch } from "react-redux";
+import { removeProductFromCart_update, updateQuantityInCart_update } from "../redux/slices/orderUpdate";
 
-function HorizontalFoodCard({ product, quantity}) {
+function HorizontalFoodCard({ product, quantity,updateOrder}) {
 
   const dispatch = useDispatch();
 
   const increment = () => {
-    dispatch(updateQuantityInCart({ product, quantity: quantity + 1 }));
+    if(updateOrder === true){
+      dispatch(updateQuantityInCart_update({ product, quantity: quantity + 1 }));
+    }else {
+      dispatch(updateQuantityInCart({ product, quantity: quantity + 1 }));
+    }
   };
 
   const decrement = () => {
     if (quantity > 1) {
-      dispatch(updateQuantityInCart({ product, quantity: quantity - 1 }));
+      if(updateOrder === true){
+        dispatch(updateQuantityInCart_update({ product, quantity: quantity - 1 }));
+      }else{
+        dispatch(updateQuantityInCart({ product, quantity: quantity - 1 }));
+      }
+
     } else if (quantity === 1) {
-      dispatch(removeProductFromCart({ id: product.id }));
+      if(updateOrder === true){
+        dispatch(removeProductFromCart_update({ id: product.id }));
+      }else{
+        dispatch(removeProductFromCart({ id: product.id }));
+      }
     }
   };
 

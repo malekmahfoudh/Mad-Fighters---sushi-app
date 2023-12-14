@@ -5,18 +5,22 @@ import NavBar from "../components/NavBar";
 import { useDispatch, useSelector } from "react-redux";
 import HorizontalFoodCard from "../components/HorizontalFoodCard";
 import { clearCart } from "../redux/slices/cart";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { clearCart_update } from "../redux/slices/orderUpdate";
 
-function Cart() {
+function CartUpdate() {
   const [products, setProducts] = useState([]);
-  const cart = useSelector((state) => state.cart.cart);
+  const cart = useSelector((state) => state.orderUpdate.cart);
   const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const orderNumber = searchParams.get("orderNumber");
+
 
 
   const onClick = () => {};
@@ -25,8 +29,6 @@ function Cart() {
     setProducts(cart);
     setIsLoading(false);
   }, [cart]);
-
-  const toastId = 'orderToast';
 
   const makeOrder = async (e) => {
     e.preventDefault();
@@ -38,27 +40,49 @@ function Cart() {
       return productIds;
     });
 
-
     const order = {
       comment: comment,
       products: productArray.flat(), // flat() makes an array of arrays into one array
     };
     
-    const res = await fetch("https://sushi-vibes.onrender.com/api/order", {
-      method: "POST",
+    const res = await fetch(`https://sushi-vibes.onrender.com/api/order/update/${orderNumber}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(order),
     });
+
     const resData = await res.json();
-    localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
-    dispatch(clearCart());
-
-    if (!toast.isActive(toastId)) {
-      toast('Your order has been placed!', { toastId });
+    if(resData.success){
+      localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
+      dispatch(clearCart_update());
+      toast(`Your order #${resData.theOrder.orderNumber} has been sent`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }else {
+      toast(resData.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
+ 
 
+    
+ 
     navigate("/home");
   };
 
@@ -88,7 +112,7 @@ function Cart() {
               <HorizontalFoodCard
                 product={product.product}
                 quantity={product.quantity}
-                updateOrder={false}
+                updateOrder={true}
                 clickEvent={onClick}
               />
             </React.Fragment>
@@ -100,15 +124,16 @@ function Cart() {
               onChange={(e) => setComment(e.target.value)}
             />
             <h2>Total: {calculateTotal()} sek</h2>
-            <button onClick={makeOrder}>Place order</button>
+            <button onClick={makeOrder}>Update order</button>
+
           </section>
         </>
       ) : (
         <EmptyCart />
       )}
-
+      <NavBar />
     </section>
   );
 }
 
-export default Cart;
+export default CartUpdate;

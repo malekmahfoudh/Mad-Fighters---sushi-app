@@ -9,7 +9,7 @@ import "../styles/NewOrders.scss";
 function NewOrders({ onClick }) {
   const [products, setProducts] = useState([]);
   const [newOrdersCount, setNewOrdersCount] = useState(0);
-
+  const [isLoading, setIsLoading] = useState(false);
   const getNewOrders = async () => {
     const response = await fetch(
       "https://sushi-vibes.onrender.com/api/worker/orders?user=worker&pass=0000"
@@ -20,8 +20,10 @@ function NewOrders({ onClick }) {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getNewOrders();
-  }, []);
+    setIsLoading(false);
+  },[]);
 
   return (
     <>

@@ -108,3 +108,31 @@ body::-webkit-scrollbar {
 
   // Add more styles for other components as needed
 }
+
+.drag-area {
+  height: 90vh;
+  width: 100vw;
+}
+
+.draggable_button {
+  position: absolute;
+  bottom: 6rem;
+  right: 2rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  color: $font-color;
+  border: 4px solid #1B813E;
+  background-color: #282828;
+  z-index:100 ;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: $font-family-base;
+  font-size: 2rem;
+  color: $font-color;
+}

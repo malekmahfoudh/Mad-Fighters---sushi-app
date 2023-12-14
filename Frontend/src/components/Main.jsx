@@ -13,6 +13,7 @@ import NavBar from "./NavBar.jsx";
 import NewOrders from "../pages/NewOrders.jsx";
 import PreparingOrders from "../pages/PreparingOrders.jsx";
 import ReadyOrders from "../pages/ReadyOrders.jsx";
+import CartUpdate from "../pages/CartUpdate.jsx";
 
 function Main() {
   const location = useLocation();
@@ -25,6 +26,7 @@ function Main() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/profile" element={<MyProfile />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/update" element={<CartUpdate />} />
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Login />} />
         <Route path="/new-orders" element={<NewOrders />} />

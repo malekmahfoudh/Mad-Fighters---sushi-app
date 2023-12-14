@@ -35,7 +35,7 @@ function SearchBar({ setSelectedCategory, selectedCategory }) {
     >
       <img
         className={selectedCategory === "starters" ? "active" : ""}
-        src="./assets/icons/Zongzi.svg/"
+        src="./public/icons/Zongzi.svg/"
         alt=""
       />
       <a>starters</a>
@@ -56,7 +56,7 @@ function SearchBar({ setSelectedCategory, selectedCategory }) {
     >
       <img
         className={selectedCategory === "main" ? "active" : ""}
-        src="./assets/icons/Sushi.svg/"
+        src="./public/icons/Sushi.svg/"
         alt=""
       />
       <a>main</a>
@@ -77,7 +77,7 @@ function SearchBar({ setSelectedCategory, selectedCategory }) {
     >
       <img
         className={selectedCategory === "sides" ? "active" : ""}
-        src="./assets/icons/Baozi.svg/"
+        src="./public/icons/Baozi.svg/"
         alt=""
       />
       <a>sides</a>
@@ -99,7 +99,7 @@ function SearchBar({ setSelectedCategory, selectedCategory }) {
         >
           <img
             className={selectedCategory === "dessert" ? "active" : ""}
-            src="./assets/icons/Pudding.svg/"
+            src="./public/icons/Pudding.svg/"
             alt=""
           />
           <a>dessert</a>
@@ -120,7 +120,7 @@ function SearchBar({ setSelectedCategory, selectedCategory }) {
         >
           <img
             className={selectedCategory === "drinks" ? "active" : ""}
-            src="./assets/icons/Drink.svg/"
+            src="./public/icons/Drink.svg/"
             alt=""
           />
           <a>drinks</a>

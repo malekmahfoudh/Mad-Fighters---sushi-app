@@ -2,7 +2,7 @@
 
 .login-container {
     height: 100vh;
-    background-image: url(  ./assets/img/bg.png);
+    background-image: url(  './public/img/bg.png');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -37,7 +37,7 @@
 
 @media (min-width: 1024px) {
     .login-container {
-        background-image: url(  ./assets/img/wallpaper.png);
+        background-image: url(  './public/img/wallpaper.png');
         background-repeat: no-repeat;
         background-size: cover;
         .logo-container {

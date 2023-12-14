@@ -32,7 +32,7 @@
 .minus_btn {
     border-radius: 1rem 0 0 1rem;
     border: none;
-    background-image: url( ./assets/icons/minus.svg);
+    background-image: url( './public/icons/minus.svg');
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: center;
@@ -44,7 +44,7 @@
 .plus_btn {
     border-radius: 0 1rem 1rem 0;
     border: none;
-    background-image: url( ./assets/icons/plus.svg);
+    background-image: url( './public/icons/plus.svg');
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: center;

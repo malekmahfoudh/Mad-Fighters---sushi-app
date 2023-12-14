@@ -20,9 +20,9 @@ function Header() {
 
     const getUserImage = () => {
         if (location.pathname === '/home' || location.pathname === '/cart' || location.pathname === '/menu') {
-            return <img src="  ./assets/icons/customer.jpg" alt="profile image" />;
+            return <img src="  ./public/icons/customer.jpg" alt="profile image" />;
         } else  {
-            return <img src="  ./assets/icons/worker.png" alt="profile image" />;
+            return <img src="  ./public/icons/worker.png" alt="profile image" />;
         }
     }
 
@@ -30,7 +30,7 @@ function Header() {
 
     return (
         <header className="HeaderContainer">
-            <img className="Logo" src="  ./assets/img/header-logo.svg" alt="sushi vibes logo" onClick={handleClick} />
+            <img className="Logo" src="  ./public/img/header-logo.svg" alt="sushi vibes logo" onClick={handleClick} />
             <section className="Profile">
                 <section className="ProfileInfo">
                     {getUserInfo()}

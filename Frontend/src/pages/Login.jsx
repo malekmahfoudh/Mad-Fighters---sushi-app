@@ -38,7 +38,7 @@ function Login() {
   return (
     <section className='login-container'>
       <section className='logo-container'>
-        <img src="  ./assets/img/logo.svg" alt="logo" className='logo' />
+        <img src="  ./public/img/logo.svg" alt="logo" className='logo' />
       </section>
 
       <section className='welcome-page'>

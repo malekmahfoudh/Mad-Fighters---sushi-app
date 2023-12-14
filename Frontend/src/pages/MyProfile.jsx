@@ -7,10 +7,10 @@ function MyProfile() {
     return ( 
         <section className='profile-container'>
             <section className='logo-container'>
-                <img src="./public/assets/img/logo.svg" alt="logo" className='logo'/>
+                <img src="  ./assets/img/logo.svg" alt="logo" className='logo'/>
             </section>
             <section className='profile-info-container'>
-                <img src="./public/assets/icons/customer.jpg" alt="profile picture"/>
+                <img src="  ./assets/icons/customer.jpg" alt="profile picture"/>
                 <ul>
                     <NavLink to='/about'>
                         <li>About Sushi Vibes</li>

@@ -20,16 +20,16 @@ function HeroFood() {
         className="mySwiper"
       >
                 <SwiperSlide>
-                    <img src="./public/assets/img/sushi-hero-3.svg" alt="food" />
+                    <img src="  ./assets/img/sushi-hero-3.svg" alt="food" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="./public/assets/img/image1.svg" alt="food" />
+                    <img src="  ./assets/img/image1.svg" alt="food" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="./public/assets/img/sushi-hero.svg" alt="food" />
+                    <img src="  ./assets/img/sushi-hero.svg" alt="food" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src="./public/assets/img/sushi-hero-2.svg" alt="food" />
+                    <img src="  ./assets/img/sushi-hero-2.svg" alt="food" />
                 </SwiperSlide>
             </Swiper>
         </section>

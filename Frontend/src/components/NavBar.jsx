@@ -26,17 +26,17 @@ function NavBar() {
     <footer className="nav-container">
       <NavLink to="/menu">
         <section className={`menu ${activeSection === "menu" ? "active" : ""}`}>
-            <img src={activeSection === "menu" ? "/public/assets/icons/active-menu.png" : "/public/assets/icons/menu.png"} alt="" />
+            <img src={activeSection === "menu" ? " ./assets/icons/active-menu.png" : " ./assets/icons/menu.png"} alt="" />
         </section>
       </NavLink>
       <NavLink to="/home">
         <section className={`home ${activeSection === "home" ? "active" : ""}`}>
-          <img src={activeSection === "home" ? "/public/assets/icons/active-home.png" : "/public/assets/icons/home.png"} alt="" />
+          <img src={activeSection === "home" ? " ./assets/icons/active-home.png" : " ./assets/icons/home.png"} alt="" />
         </section>
       </NavLink>
       <NavLink to="/cart">
         <section className={`cart ${activeSection === "cart" ? "active" : ""}`} style={{ position: 'relative' }}>
-          <img src={activeSection === "cart" ? "/public/assets/icons/active-cart.png" : "/public/assets/icons/cart.png"} alt="" />
+          <img src={activeSection === "cart" ? " ./assets/icons/active-cart.png" : " ./assets/icons/cart.png"} alt="" />
           {cartQuantity > 0 && <AmountIcon amount={cartQuantity} style={{ position: 'absolute', top: 5, right: 0 }} />}
         </section>
       </NavLink>

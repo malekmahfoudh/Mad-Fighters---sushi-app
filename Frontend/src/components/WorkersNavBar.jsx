@@ -23,18 +23,18 @@ function WorkersNavBar( {newOrdersCount} ) {
         <footer className="nav-container">
             <NavLink to="/new-orders">
                 <section className={`new ${activeSection === "new" ? "active" : ""}`} style={{ position: 'relative' }}>
-                    <img src={activeSection === "new" ? "/public/assets/icons/active-new.png" : "/public/assets/icons/new.png"} alt="" />
+                    <img src={activeSection === "new" ? " ./assets/icons/active-new.png" : " ./assets/icons/new.png"} alt="" />
                     {newOrdersCount > 0 && <AmountIcon amount={newOrdersCount} style={{ position: 'absolute', top: 5, right: -15 }} />}
                 </section>
             </NavLink>
             <NavLink to="/preparing-orders">
                 <section className={`prepare ${activeSection === "prepare" ? "active" : ""}`}>
-                    <img src={activeSection === "prepare" ? "/public/assets/icons/active-prepare.png" : "/public/assets/icons/prepare.png"} alt="" />
+                    <img src={activeSection === "prepare" ? " ./assets/icons/active-prepare.png" : " ./assets/icons/prepare.png"} alt="" />
                 </section>
             </NavLink>
             <NavLink to="/ready-orders">
                 <section className={`ready ${activeSection === "ready" ? "active" : ""}`}>
-                    <img src={activeSection === "ready" ? "/public/assets/icons/active-ready.png" : "/public/assets/icons/ready.png"} alt="" />
+                    <img src={activeSection === "ready" ? " ./assets/icons/active-ready.png" : " ./assets/icons/ready.png"} alt="" />
                 </section>
             </NavLink>
         </footer>

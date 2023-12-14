@@ -68,7 +68,7 @@ export function OrderOverlay({ close, product }) {
                 {products && products.map((item, index) => (
                   <tr key={index}>
                     <td>{item.quantity}</td>
-                    <td>{item.title}</td>
+                    <td>{item.product.title}</td>
                   </tr>
                 ))
                 }

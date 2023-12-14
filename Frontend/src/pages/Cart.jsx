@@ -51,7 +51,7 @@ function Cart() {
     const resData = await res.json();
     localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
     dispatch(clearCart());
-    const notis = toast(`Your order #${resData.theOrder.orderNumber} has been sent`, {
+    toast(`Your order #${resData.theOrder.orderNumber} has been sent`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

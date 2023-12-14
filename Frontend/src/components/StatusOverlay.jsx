@@ -3,22 +3,35 @@ import { motion, AnimatePresence } from "framer-motion";
 import "swiper/scss";
 import '../styles/StatusOverlay.scss';
 import { getProductsWithQuantity } from "../utils/utils.js";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, clearCart } from "../redux/slices/cart.js";
+
 
 export   function StatusOverlay({order,locked, orderStatusColor }) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const cart = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
     const overlayVariants = {
     hidden: { scale: 0 },
     visible: { scale: 1 },
     exit: { scale: 0 },
   };
 
+
   async function getProducts() {
-    
     const productsWithQuantity = await getProductsWithQuantity(order.order.products);
     setProducts(productsWithQuantity);
+    if(!order.order.locked){
+      productsWithQuantity.forEach((product) => {
+        if(cart && cart.length <= 0) {
+        dispatch(addToCart(product));
+      } }) ;
+    }else {
+      dispatch(clearCart());
+    }
   }
+
 
   function orderStatus() {
     if (order.order.status === 'pending') {
@@ -37,7 +50,8 @@ export   function StatusOverlay({order,locked, orderStatusColor }) {
   useEffect(() => {
     setIsLoading(true);
     getProducts();
-    setIsLoading(false);  
+    setIsLoading(false);
+    
   }, []);
 
   return (
@@ -65,7 +79,7 @@ export   function StatusOverlay({order,locked, orderStatusColor }) {
                {products && products.map((item, index) => (
                  <tr key={index}>
                    <td>{item.quantity}</td>
-                   <td>{item.title}</td>
+                   <td>{item.product.title}</td>
                  </tr>
                ))
                }

@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 
 import { ToastContainer } from "react-toastify";
+import { getProductsWithQuantity } from "../utils/utils";
 
 function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -29,9 +30,8 @@ function HomePage() {
 
 
 
-   function handleOverlay(){
+    function handleOverlay(){
     setIsOverlayOpen(!isOverlayOpen);
-
   }
 
   function orderStatusColor() {

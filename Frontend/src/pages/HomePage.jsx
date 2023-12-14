@@ -25,7 +25,7 @@ function HomePage() {
       const res = await getStatus.json();
       setOrderStatus (await res);
       setIsLoading(false);
-      setIsLocked(res.order.locked);
+      setIsLocked(res?.order?.locked);
   }
 
 
@@ -49,7 +49,7 @@ function HomePage() {
   useEffect(() => {
     const orderNumber = localStorage.getItem("OrderNumber");
     if(orderNumber) getOrderStatus(JSON.parse(orderNumber));
-    else console.log("No order number found");
+    else return;
   }, []);
 
   
@@ -105,7 +105,7 @@ function HomePage() {
       )}
       
       <NavBar />
-      {isOverlayOpen ? <StatusOverlay order={orderStatus} orderStatusColor={orderStatusColor} locked={isLocked} /> : '' } 
+      { localStorage.getItem("OrderNumber") && isOverlayOpen ? <StatusOverlay order={orderStatus} orderStatusColor={orderStatusColor} locked={isLocked} /> : '' } 
     </main>
   );
 }

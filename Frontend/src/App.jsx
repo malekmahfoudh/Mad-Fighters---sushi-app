@@ -9,10 +9,10 @@ import Cart from "./pages/Cart.jsx";
 import About from "./pages/About.jsx";
 import Login from "./pages/Login.jsx";
 import Menu from "./pages/Menu.jsx";
-
 import NewOrders from "./pages/NewOrders.jsx";
 import PreparingOrders from "./pages/PreparingOrders.jsx";
 import ReadyOrders from "./pages/ReadyOrders.jsx";
+import CartUpdate from "./pages/CartUpdate.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +31,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/profile" element={<MyProfile />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/update" element={<CartUpdate />} />
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Login />} />
         <Route path="/new-orders" element={<NewOrders />} />

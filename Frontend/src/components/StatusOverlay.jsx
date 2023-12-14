@@ -4,14 +4,16 @@ import "swiper/scss";
 import '../styles/StatusOverlay.scss';
 import { getProductsWithQuantity } from "../utils/utils.js";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, clearCart } from "../redux/slices/cart.js";
+import { addToCart_update, clearCart_update} from "../redux/slices/orderUpdate.js";
+import { useNavigate } from "react-router-dom";
 
 
 export   function StatusOverlay({order,locked, orderStatusColor }) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const cart = useSelector((state) => state.cart.cart);
+  const updateCart = useSelector((state) => state.orderUpdate.cart);
   const dispatch = useDispatch();
+  const nav = useNavigate();
     const overlayVariants = {
     hidden: { scale: 0 },
     visible: { scale: 1 },
@@ -20,27 +22,27 @@ export   function StatusOverlay({order,locked, orderStatusColor }) {
 
 
   async function getProducts() {
-    const productsWithQuantity = await getProductsWithQuantity(order.order.products);
+    const productsWithQuantity = await getProductsWithQuantity(order?.order?.products);
     setProducts(productsWithQuantity);
-    if(!order.order.locked){
+    if(!order?.order.locked){
       productsWithQuantity.forEach((product) => {
-        if(cart && cart.length <= 0) {
-        dispatch(addToCart(product));
+        if(updateCart && updateCart.length <= 0) {
+        dispatch(addToCart_update(product));
       } }) ;
     }else {
-      dispatch(clearCart());
+      dispatch(clearCart_update());
     }
   }
 
 
   function orderStatus() {
-    if (order.order.status === 'pending') {
+    if (order?.order?.status === 'pending') {
       return 'Your order waits for confirmation';
     }
-    if (order.order.status === 'verified') {
+    if (order?.order?.status === 'verified') {
       return 'Your order is being prepared';
     }
-    if (order.order.status === 'done') {
+    if (order?.order?.status === 'done') {
       return 'Your order is ready for pickup';
     }
   }
@@ -88,8 +90,8 @@ export   function StatusOverlay({order,locked, orderStatusColor }) {
            </table>
 
            <section className="button-container">
-           {!locked ? (
-           <button className="confirm_btn" onClick={() => {}}>UPDATE</button>
+           {!locked && order?.order?.status === "pending" ? (
+           <button className="confirm_btn" onClick={() => {nav('/update?orderNumber=' + order?.order?.orderNumber )}}>UPDATE</button>
            ) : (
              ''
            )}

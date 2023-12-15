@@ -5,12 +5,6 @@
   </a>
 </p>
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Contributors](#contributors)
-
 ## Introduction
 
 This is an app made for a restaurant called sushi vibes. The restaurant asked for a app where you can order take-away food and wanted it to be for both customers and employees.

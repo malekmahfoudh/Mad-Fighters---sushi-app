@@ -7,7 +7,7 @@ import '../styles/OrderOverlay.scss';
 export function OrderOverlay({ close, product }) {
   const [order, setOrder] = useState({});
   const [products, setProducts] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   const overlayVariants = {
     hidden: { scale: 0 },
     visible: { scale: 1 },
@@ -17,26 +17,39 @@ export function OrderOverlay({ close, product }) {
 
 
   const getOrder = async () => {
-    const response = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${product.orderNumber}`);
-    const data = await response.json();
-    setOrder(data.order);
-
-    //getProductsWithQuantity(data.order.products); is a function that converts the array of products into an array of objects with the product and the quantity
-    setProducts(await getProductsWithQuantity(data.order.products));
-  } 
+    try {
+      const response = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${product.orderNumber}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setOrder(data.order);
+      setProducts(await getProductsWithQuantity(data.order.products));
+    } catch (error) {
+      console.error('A problem occurred fetching the order:', error);
+    }
+  }
 
   const verifyOrder = async () => {
-     await fetch(`https://sushi-vibes.onrender.com/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
-      method: "PUT"
-    });
-    window.location.reload();
+    try {
+      const response = await fetch(`https://sushi-vibes.onrender.com/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
+        method: "PUT"
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      window.location.reload();
+    } catch (error) {
+      console.error('A problem occurred verifying the order:', error);
+    }
   };
-
  
   useEffect(() => {
-    getOrder();
-  }
-  ,[]);
+    const fetchOrder = async () => {
+      await getOrder();
+    };
+    fetchOrder();
+  }, []);
 
   return (
     <AnimatePresence>

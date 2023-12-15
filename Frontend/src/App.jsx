@@ -9,7 +9,9 @@ import "./styles/App.scss";
 
 function App() {
   const dispatch = useDispatch();
+  
   useEffect(() => {
+    
     fetch("https://sushi-vibes.onrender.com/api/menu")
       .then((res) => res.json())
       .then((data) => {
@@ -32,6 +34,7 @@ function App() {
         pauseOnHover
         theme="dark"
       />
+
       <Main />
     </BrowserRouter>
   );

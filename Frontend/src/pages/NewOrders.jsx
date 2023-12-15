@@ -22,6 +22,7 @@ function NewOrders({ onClick }) {
 
   useEffect(() => {
     setIsLoading(true);
+    
     getNewOrders();
     setIsLoading(false);
   },[]);

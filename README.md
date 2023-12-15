@@ -1,9 +1,11 @@
 # SUSHI VIBES - TAKE AWAY APP 
+
 <p align="center">
   <a href="https://sushi-vibes.netlify.app/">
     <img alt="SushiVibes" title="SushiVibes" src="https://github.com/malekmahfoudh/Mad-Fighters---sushi-app/assets/112616615/e7d408fd-bb4e-4938-8966-6c2ae9787c69" width="400">
   </a>
 </p>
+
 
 ## Introduction
 

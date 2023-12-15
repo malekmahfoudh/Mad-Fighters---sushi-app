@@ -23,15 +23,15 @@ Since this is an app built from two perspectives; customer and employee, the fea
 See images below for clarification.
 
 ### For customers
-* View user activity feed
-* Communicate on your issue and pull request conversations
-* Close or lock issues
-* Apply labels and assignees
-* Review and merge pull requests
-* Create new issues
-* Star, watch and fork repositories
-* Control your unread and participating notifications
-* Easily search for any user or repository
+* View the full menu
+* Read about the dishes, price, No. pieces, allergens and spice
+* See top dishes
+* Filter the products by different categories
+* Add product to cart
+* Add a comment to the restaurant and change quantity of products in cart
+* Place order
+* View order status
+* Change the order, this option is only avaliable until the restaurant has accepted the order
 
 
 <p align="center">

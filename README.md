@@ -9,7 +9,7 @@
 
 This is an app made for a restaurant called sushi vibes. The restaurant asked for a app where you can order take-away food and wanted it to be for both customers and employees.
 The project is a fullstack app built with [React](https://react.dev) and [Node.js](https://nodejs.org/en).
-The app is also deployed with [Netlify](https://www.netlify.com) so you can try it out! To go to the live version, click on the logo above or the link under "About" on the right side.
+The app is also deployed with [Netlify](https://www.netlify.com) so you can try it out! It works best in mobile view since we made it mobile first but it's also adapted for a wider screen. To go to the live version, click on the logo above or the link under "About" on the right side.
 
 ## Features
 

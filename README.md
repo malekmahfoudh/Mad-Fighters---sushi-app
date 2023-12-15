@@ -50,7 +50,7 @@ See images below for clarification.
 ## Contributors
 This project was created by: 
 
-[Shirak Soghomonian](https://github.com/Shirak22) ⠀⠀⠀⠀⠀ &nbsp;&middot;&nbsp;⠀⠀⠀⠀⠀
-[Philippa Lodenius](https://github.com/Lodenius) ⠀⠀⠀⠀⠀&nbsp;&middot;&nbsp;⠀⠀⠀⠀⠀
-[Malek Mahfoudh](https://github.com/malekmahfoudh) ⠀⠀⠀⠀⠀&nbsp;&middot;&nbsp;⠀⠀⠀⠀⠀
+[Shirak Soghomonian](https://github.com/Shirak22) ⠀⠀⠀ &nbsp;&middot;&nbsp;⠀⠀⠀
+[Philippa Lodenius](https://github.com/Lodenius) ⠀⠀⠀&nbsp;&middot;&nbsp;⠀⠀⠀
+[Malek Mahfoudh](https://github.com/malekmahfoudh)⠀⠀⠀⠀&nbsp;&middot;&nbsp;⠀⠀⠀
 [Linda Kahju](https://github.com/lindakahju)

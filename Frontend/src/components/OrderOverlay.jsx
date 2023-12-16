@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getProductsWithQuantity } from "../utils/utils.js";
+const process = import.meta.env;
 import "swiper/scss";
 import '../styles/OrderOverlay.scss';
 
@@ -18,7 +19,7 @@ export function OrderOverlay({ close, product }) {
 
   const getOrder = async () => {
     try {
-      const response = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${product.orderNumber}`);
+      const response = await fetch(`${process.VITE_BACKEND_HOST}/api/order/status/${product.orderNumber}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -32,7 +33,7 @@ export function OrderOverlay({ close, product }) {
 
   const verifyOrder = async () => {
     try {
-      const response = await fetch(`https://sushi-vibes.onrender.com/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
+      const response = await fetch(`${process.VITE_BACKEND_HOST}/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
         method: "PUT"
       });
       if (!response.ok) {

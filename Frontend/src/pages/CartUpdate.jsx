@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import HorizontalFoodCard from "../components/HorizontalFoodCard";
 import { clearCart } from "../redux/slices/cart";
 import { Navigate, useNavigate, useParams, useSearchParams } from "react-router-dom";
-
+const process = import.meta.env;
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { clearCart_update } from "../redux/slices/orderUpdate";
@@ -46,7 +46,7 @@ function CartUpdate() {
         comment: comment,
         products: productArray.flat(), // flat() makes an array of arrays into one array
       };
-      const res = await fetch(`https://sushi-vibes.onrender.com/api/order/update/${orderNumber}`, {
+      const res = await fetch(`${process.VITE_BACKEND_HOST}/api/order/update/${orderNumber}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

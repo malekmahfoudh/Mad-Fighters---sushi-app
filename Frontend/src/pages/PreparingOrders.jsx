@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import '../styles/WorkerFoodCard.scss';
 import '../styles/NewOrders.scss';
-
+const process = import.meta.env;
 function PreparingOrders({ onClick }) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   
   const getNewOrders = async () => {
-    const response = await fetch("https://sushi-vibes.onrender.com/api/worker/orders/verified?user=worker&pass=0000");
+    const response = await fetch(`${process.VITE_BACKEND_HOST}/api/worker/orders/verified?user=worker&pass=0000`);
     const data = await response.json();
     setProducts(await data.orders);
   };

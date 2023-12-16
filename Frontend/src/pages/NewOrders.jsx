@@ -12,12 +12,16 @@ function NewOrders({ onClick }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const getNewOrders = async () => {
-    const response = await fetch(
-      "https://sushi-vibes.onrender.com/api/worker/orders?user=worker&pass=0000"
-    );
-    const data = await response.json();
-    setProducts(await data.orders);
-    setNewOrdersCount(await data.orders.length);
+    try {
+      const response = await fetch(
+        "https://sushi-vibes.onrender.com/api/worker/orders?user=worker&pass=0000"
+      );
+      const data = await response.json();
+      setProducts(await data.orders);
+      setNewOrdersCount(await data.orders.length);
+    } catch (error) {
+        console.log(error);
+    }
   };
 
   useEffect(() => {

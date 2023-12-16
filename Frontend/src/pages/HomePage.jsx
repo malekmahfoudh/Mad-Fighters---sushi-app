@@ -20,12 +20,17 @@ function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const constraintsRef = useRef(null);
   const getOrderStatus = async (orderNumber) => {
-      setIsLoading(true);
-      const getStatus = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${orderNumber}`);
-      const res = await getStatus.json();
-      setOrderStatus (await res);
-      setIsLoading(false);
-      setIsLocked(res?.order?.locked);
+      try {
+        setIsLoading(true);
+        const getStatus = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${orderNumber}`);
+        const res = await getStatus.json();
+        setOrderStatus (await res);
+        setIsLoading(false);
+        setIsLocked(res?.order?.locked);
+      } catch (error) {
+        console.log(error);
+      }
+ 
   }
 
 

@@ -32,58 +32,63 @@ function CartUpdate() {
 
   const makeOrder = async (e) => {
     e.preventDefault();
-    const productArray = products.map((product) => {
-      const productIds = [];
-      for (let i = 0; i < product.quantity; i++) {
-        productIds.push({ id: product.product.id });
+ 
+    try {
+      const productArray = products.map((product) => {
+        const productIds = [];
+        for (let i = 0; i < product.quantity; i++) {
+          productIds.push({ id: product.product.id });
+        }
+        return productIds;
+      });
+  
+      const order = {
+        comment: comment,
+        products: productArray.flat(), // flat() makes an array of arrays into one array
+      };
+      const res = await fetch(`https://sushi-vibes.onrender.com/api/order/update/${orderNumber}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(order),
+      });
+  
+      const resData = await res.json();
+      if(resData.success){
+        localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
+        dispatch(clearCart_update());
+        toast(`Your order #${resData.theOrder.orderNumber} has been sent`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }else {
+        toast(resData.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
       }
-      return productIds;
-    });
-
-    const order = {
-      comment: comment,
-      products: productArray.flat(), // flat() makes an array of arrays into one array
-    };
-    
-    const res = await fetch(`https://sushi-vibes.onrender.com/api/order/update/${orderNumber}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(order),
-    });
-
-    const resData = await res.json();
-    if(resData.success){
-      localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
-      dispatch(clearCart_update());
-      toast(`Your order #${resData.theOrder.orderNumber} has been sent`, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
-    }else {
-      toast(resData.message, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+   
+  
+      
+   
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
     }
- 
 
-    
- 
-    navigate("/home");
   };
 
 

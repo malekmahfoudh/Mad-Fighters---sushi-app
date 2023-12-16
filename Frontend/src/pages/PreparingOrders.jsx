@@ -19,7 +19,12 @@ function PreparingOrders({ onClick }) {
 
   useEffect(() => {
     setIsLoading(true);
+    try {
     getNewOrders();
+      
+    } catch (error) {
+      console.log(error);
+    }
     setIsLoading(false);
   },[]);
 

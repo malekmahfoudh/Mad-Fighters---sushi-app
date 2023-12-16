@@ -18,17 +18,22 @@ import Cart from "./pages/Cart.jsx";
 import About from "./pages/About.jsx";
 import Login from "./pages/Login.jsx";
 import Menu from "./pages/Menu.jsx";
+import Page404 from "./pages/Page404.jsx";
 
 function App() {
   const dispatch = useDispatch();
   
   useEffect(() => {
     
+   try {
     fetch("https://sushi-vibes.onrender.com/api/menu")
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(addProducts(data.menu));
-      });
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(addProducts(data.menu));
+    });
+   } catch (error) {
+     console.log(error);
+   }
   }, []);
 
   return (
@@ -57,6 +62,8 @@ function App() {
         <Route path="/new-orders" element={<NewOrders />} />
         <Route path="/preparing-orders" element={<PreparingOrders />} />
         <Route path="/ready-orders" element={<ReadyOrders />} />
+        <Route path="*" element={<Page404 />} />
+
       </Routes>
       <Main />
     </BrowserRouter>

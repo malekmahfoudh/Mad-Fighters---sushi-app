@@ -9,15 +9,21 @@ import '../styles/NewOrders.scss';
 
 function ReadyOrders({ onClick }) {
   const [products, setProducts] = useState([]);
+
   const getNewOrders = async () => {
     const response = await fetch("https://sushi-vibes.onrender.com/api/worker/orders/done?user=worker&pass=0000");
     const data = await response.json();
     setProducts(data.orders);
   };
-  console.log(products);
+
 
   useEffect(() => {
-    getNewOrders();
+    try {
+      getNewOrders();
+    } catch (error) {
+      console.log(error);
+    }
+    
   },[]);
 
   return (

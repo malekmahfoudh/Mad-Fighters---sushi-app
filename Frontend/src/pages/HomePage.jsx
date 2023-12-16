@@ -7,7 +7,7 @@ import NavBar from "../components/NavBar";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-
+const process = import.meta.env;
 import { ToastContainer } from "react-toastify";
 import { getProductsWithQuantity } from "../utils/utils";
 
@@ -20,12 +20,17 @@ function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const constraintsRef = useRef(null);
   const getOrderStatus = async (orderNumber) => {
-      setIsLoading(true);
-      const getStatus = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${orderNumber}`);
-      const res = await getStatus.json();
-      setOrderStatus (await res);
-      setIsLoading(false);
-      setIsLocked(res?.order?.locked);
+      try {
+        setIsLoading(true);
+        const getStatus = await fetch(`${process.VITE_BACKEND_HOST}/api/order/status/${orderNumber}`);
+        const res = await getStatus.json();
+        setOrderStatus (await res);
+        setIsLoading(false);
+        setIsLocked(res?.order?.locked);
+      } catch (error) {
+        console.log(error);
+      }
+ 
   }
 
 

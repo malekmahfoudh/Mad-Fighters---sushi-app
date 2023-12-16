@@ -7,14 +7,33 @@ import Main from "./components/Main.jsx";
 import { ToastContainer } from "react-toastify";
 import "./styles/App.scss";
 
+
+import NewOrders from "./pages/NewOrders.jsx";
+import PreparingOrders from "./pages/PreparingOrders.jsx";
+import ReadyOrders from "./pages/ReadyOrders.jsx";
+import CartUpdate from "./pages/CartUpdate.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import MyProfile from "./pages/MyProfile.jsx";
+import Cart from "./pages/Cart.jsx";
+import About from "./pages/About.jsx";
+import Login from "./pages/Login.jsx";
+import Menu from "./pages/Menu.jsx";
+import Page404 from "./pages/Page404.jsx";
+
 function App() {
   const dispatch = useDispatch();
+  
   useEffect(() => {
+    
+   try {
     fetch("https://sushi-vibes.onrender.com/api/menu")
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(addProducts(data.menu));
-      });
+    .then((res) => res.json())
+    .then((data) => {
+      dispatch(addProducts(data.menu));
+    });
+   } catch (error) {
+     console.log(error);
+   }
   }, []);
 
   return (
@@ -32,6 +51,20 @@ function App() {
         pauseOnHover
         theme="dark"
       />
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/profile" element={<MyProfile />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/update" element={<CartUpdate />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/new-orders" element={<NewOrders />} />
+        <Route path="/preparing-orders" element={<PreparingOrders />} />
+        <Route path="/ready-orders" element={<ReadyOrders />} />
+        <Route path="*" element={<Page404 />} />
+
+      </Routes>
       <Main />
     </BrowserRouter>
   );

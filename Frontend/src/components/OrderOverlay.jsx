@@ -1,44 +1,56 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getProductsWithQuantity } from "../utils/utils.js";
+const process = import.meta.env;
 import "swiper/scss";
 import '../styles/OrderOverlay.scss';
 
 export function OrderOverlay({ close, product }) {
   const [order, setOrder] = useState({});
   const [products, setProducts] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   const overlayVariants = {
     hidden: { scale: 0 },
     visible: { scale: 1 },
     exit: { scale: 0 },
   };
 
-  const verifyOrder = async () => {
-    const verifiedOrder = await fetch(`https://sushi-vibes.onrender.com/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
-      method: "PUT"
-    });
-    getOrder();
-    console.log(await verifiedOrder.json());
-    window.location.reload();
-  };
 
 
   const getOrder = async () => {
-    const response = await fetch(`https://sushi-vibes.onrender.com/api/order/status/${product.orderNumber}`);
-    const data = await response.json();
-    setOrder(data.order);
+    try {
+      const response = await fetch(`${process.VITE_BACKEND_HOST}/api/order/status/${product.orderNumber}`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setOrder(data.order);
+      setProducts(await getProductsWithQuantity(data.order.products));
+    } catch (error) {
+      console.error('A problem occurred fetching the order:', error);
+    }
+  }
 
-    //getProductsWithQuantity(data.order.products); is a function that converts the array of products into an array of objects with the product and the quantity
-    setProducts(await getProductsWithQuantity(data.order.products));
-  } 
-  
+  const verifyOrder = async () => {
+    try {
+      const response = await fetch(`${process.VITE_BACKEND_HOST}/api/worker/orders/verify/${product.orderNumber}?user=worker&pass=0000`, {
+        method: "PUT"
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      window.location.reload();
+    } catch (error) {
+      console.error('A problem occurred verifying the order:', error);
+    }
+  };
  
   useEffect(() => {
-    getOrder();
-    console.log("order", order);
-  }
-  ,[]);
+    const fetchOrder = async () => {
+      await getOrder();
+    };
+    fetchOrder();
+  }, []);
 
   return (
     <AnimatePresence>

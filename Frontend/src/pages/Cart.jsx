@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import HorizontalFoodCard from "../components/HorizontalFoodCard";
 import { clearCart } from "../redux/slices/cart";
 import { Navigate, useNavigate } from "react-router-dom";
-
+const process = import.meta.env;
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -30,39 +30,43 @@ function Cart() {
 
   const makeOrder = async (e) => {
     e.preventDefault();
-    const productArray = products.map((product) => {
-      const productIds = [];
-      for (let i = 0; i < product.quantity; i++) {
-        productIds.push({ id: product.product.id });
+    try {
+      const productArray = products.map((product) => {
+        const productIds = [];
+        for (let i = 0; i < product.quantity; i++) {
+          productIds.push({ id: product.product.id });
+        }
+        return productIds;
+      });
+  
+  
+      const order = {
+        comment: comment,
+        products: productArray.flat(), // flat() makes an array of arrays into one array
+      };
+      
+      const res = await fetch(`${process.VITE_BACKEND_HOST}/api/order`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(order),
+      });
+      const resData = await res.json();
+      localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
+      dispatch(clearCart());
+      console.log("about to show toast");
+      if (!toast.isActive(toastId)) {
+        console.log("showing toast");
+        toast('Your order has been placed!', { toastId });
+      } else {
+        console.log("toast already showing");
       }
-      return productIds;
-    });
-
-
-    const order = {
-      comment: comment,
-      products: productArray.flat(), // flat() makes an array of arrays into one array
-    };
-    
-    const res = await fetch("https://sushi-vibes.onrender.com/api/order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(order),
-    });
-    const resData = await res.json();
-    localStorage.setItem("OrderNumber", JSON.stringify(resData.theOrder.orderNumber));
-    dispatch(clearCart());
-    console.log("about to show toast");
-    if (!toast.isActive(toastId)) {
-      console.log("showing toast");
-      toast('Your order has been placed!', { toastId });
-    } else {
-      console.log("toast already showing");
+  
+      navigate("/home");
+    } catch (error) {
+        console.log(error);
     }
-
-    navigate("/home");
   };
 
 

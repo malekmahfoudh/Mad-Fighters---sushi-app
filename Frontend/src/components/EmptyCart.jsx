@@ -5,7 +5,7 @@ function EmptyCart() {
     return ( 
         <article className="EmptyCartContainer">
             <section>
-                <img src="  ./public/img/empty-cart.svg" alt="empty plate"/>
+                <img src="  /assets/img/empty-cart.svg" alt="empty plate"/>
                 <p>Your plate is empty...</p>
             </section>
         </article>

@@ -20,7 +20,7 @@ function WorkerFoodCard({ product= {}, color}) {
       <section className="info">
         <p>Order nr:<br></br> {product.orderNumber}</p>
       </section>
-      <img src=" ./public/icons/takeaway.svg/" alt="take away" />
+      <img src=" /assets/icons/takeaway.svg/" alt="take away" />
     </article>
     {isOverlayOpen && <OrderOverlay product={product} close={closeOverlay} />}
     </>

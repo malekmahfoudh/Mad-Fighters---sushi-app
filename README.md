@@ -47,6 +47,13 @@ See images below for clarification.
   <img src = "https://github.com/malekmahfoudh/Mad-Fighters---sushi-app/assets/112616615/49ea4477-2ae1-41c5-ac72-761550376f0d" width=1000>
 </p>
 
+
+### Links
+* [Live Demo](https://sushi-vibes.netlify.app) 
+* [API Live Demo ](https://sushi-vibes.onrender.com)
+* [Github Backend](https://github.com/malekmahfoudh/mad-fighters-sushi-app-backend)
+
+
 ## Contributors
 This project was created by: 
 
